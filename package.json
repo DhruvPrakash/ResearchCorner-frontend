@@ -1,0 +1,38 @@
+{
+  "name": "practicum-front",
+  "version": "1.0.0",
+  "description": "The front end for the collaboration tool.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Spiral_Out@bitbucket.org/mlrgcollaborationspace/researchproject_frontend.git"
+  },
+  "keywords": [
+    "collaboration",
+    "frontend"
+  ],
+  "author": "Dhruv Prajay Prakash",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/mlrgcollaborationspace/researchproject_frontend#readme",
+  "devDependencies": {
+    "browser-sync": "^2.17.3",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-less": "^3.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^2.0.0",
+    "jshint": "^2.9.3",
+    "jshint-stylish": "^2.2.1",
+    "less-plugin-autoprefix": "^1.5.1"
+  },
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-ui-router": "^0.3.1"
+  }
+}
