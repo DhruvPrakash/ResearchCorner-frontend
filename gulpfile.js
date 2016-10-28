@@ -4,9 +4,9 @@ var gulp = require('gulp'),
 	browserSync = require('browser-sync'),
 	browserify = require('gulp-browserify'),
 	concat = require('gulp-concat');
+	uglify = require('gulp-uglify');
 
-gulp.task('default', ['watch','browserify','browser-sync']);
-
+gulp.task('default', ['css-concat','browserify','browser-sync','watch']);
 // gulp.task('jshint', function(){
 // 	return gulp.src('source/javascript/**/*.js')
 // 		.pipe(jshint())
@@ -21,7 +21,7 @@ gulp.task('default', ['watch','browserify','browser-sync']);
 
 gulp.task('watch', function(){
 	gulp.watch('app/**/*.js', ['browserify']);
-	gulp.watch('source/less/**/*.less', ['build-css']);
+	//gulp.watch('source/less/**/*.less', ['build-css']);
 });
 
 gulp.task('browser-sync', function(){
@@ -36,11 +36,11 @@ gulp.task('browser-sync', function(){
 	});
 });
 
-// gulp.task('build-js', function(){
-// 	return gulp.src('./app/**/*.js')
-// 		.pipe(concat('scripts.js'))
-// 		.pipe(gulp.dest('./dist/'))
-// });
+gulp.task('css-concat', function(){
+	gulp.src('app/styles/*.css')
+		.pipe(concat('main.css'))
+		.pipe(gulp.dest('./dist'))
+});
 
 gulp.task('browserify', function(){
 	gulp.src(['app/app.js'])
@@ -49,5 +49,14 @@ gulp.task('browserify', function(){
 			debug: true
 		}))
 		.pipe(concat('scripts.js'))
+		.pipe(uglify())
 		.pipe(gulp.dest('./dist'));
 });
+
+gulp.task('uglify', function(){
+	return gulp.src(['./dist/scripts.js'])
+		.pipe(uglify());
+})
+
+
+gulp.task('build', ['browserify','css-concat']);
