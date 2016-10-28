@@ -1,0 +1,12 @@
+<section>
+	<ul class="nav nav-tabs">
+	  <li role="presentation" ng-click="changeMainTab('add')" ng-class="{'active': mainTab.selectedTab === 'add'}"><a href="" ui-sref="home.createBib.addBib.types">Add</a></li>
+	  <li role="presentation" ng-click="changeMainTab('upload')" ng-class="{'active': mainTab.selectedTab === 'upload'}"><a href="" ui-sref="home.createBib.uploadBib">Upload</a></li>
+	</ul>
+	
+	<br>
+
+	<div ui-view=""></div>
+	
+
+</section>

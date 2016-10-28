@@ -1,0 +1,40 @@
+<div class="row">
+    <!-- uncomment code for absolute positioning tweek see top comment in css -->
+    <!-- <div class="absolute-wrapper"> </div> -->
+    <!-- Menu -->
+    <div class="side-menu">
+    
+    <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <div class="brand-wrapper">            
+            <!-- Brand -->
+            <div class="brand-name-wrapper">
+                <a class="navbar-brand" href="#">
+                    MLRG
+                </a>
+            </div>           
+        </div>
+
+    </div>
+
+    <!-- Main Menu -->
+    <div class="side-menu-container">
+        <ul class="nav navbar-nav">
+            <li><a href="#" ui-sref="home.createBib.addBib.types"><span class="glyphicon glyphicon-send"></span> Add References</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-search"></span> Search References</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-cloud"></span> Workspace</a></li>            
+        </ul>
+    </div>
+</nav>
+    
+    </div>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="side-body">
+        	<ui-view></ui-view>
+        </div>
+           
+    </div>
+</div>
