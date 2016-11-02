@@ -111,7 +111,7 @@ angular.module('mlrg.bibcreate')
 
 		var addBib = function(data){
 			cleanFields(data);
-			return $http.post('/api/addBib', data);
+			return $http.post('/api/addbib', data);
 		};
 
 
