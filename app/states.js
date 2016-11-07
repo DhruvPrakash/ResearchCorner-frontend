@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = ['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+module.exports = ['$stateProvider', '$urlRouterProvider','$locationProvider', function($stateProvider, $urlRouterProvider){
 	$urlRouterProvider.otherwise('');
 	$stateProvider.state('home', {
 		url: '',
@@ -52,10 +52,10 @@ module.exports = ['$stateProvider', '$urlRouterProvider', function($stateProvide
 				templateUrl: '/app/bib-create/bib-add/inProceedings/inproceedings-required.partial.html'
 			},
 			'inProceedings-general@home.createBib.addBib.types': {
-				templateUrl: '/app/bib-create/bib-add/inProceedings/inProceedings-general.partial.html'
+				templateUrl: '/app/bib-create/bib-add/inProceedings/inproceedings-general.partial.html'
 			},
 			'inProceedings-optional@home.createBib.addBib.types': {
-				templateUrl: '/app/bib-create/bib-add/inProceedings/inProceedings-optional.partial.html'
+				templateUrl: '/app/bib-create/bib-add/inProceedings/inproceedings-optional.partial.html'
 			}
 
 		}
