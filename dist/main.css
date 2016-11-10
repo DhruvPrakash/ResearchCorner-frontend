@@ -1,6 +1,17 @@
 .space-btw-nav-content{
 	margin-top:5%;
 }
+.side-menu {
+	margin-top: 50px;
+}
+
+.side-body {
+	margin-top: 50px;
+}
+
+.chakk {
+	color:blue;
+}
 :focus {
   outline: none;
 }
