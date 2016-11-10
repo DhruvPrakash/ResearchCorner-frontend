@@ -1,40 +1,42 @@
 <div class="row">
     <!-- uncomment code for absolute positioning tweek see top comment in css -->
     <!-- <div class="absolute-wrapper"> </div> -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">MLRG</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <ul class="nav navbar-nav navbar-right">
+                <li uib-dropdown on-toggle="toggled(open)">
+                    <a uib-dropdown-toggle class="dropdown-toggle">Notifications<b class="caret"></b></a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li><a>Thought Crime</a></li>
+                        <li><a>Face Crime</a></li>
+                        <li><a>The 2 minute hate</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <!-- Menu -->
     <div class="side-menu">
-    
-    <nav class="navbar navbar-default" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <div class="brand-wrapper">            
-            <!-- Brand -->
-            <div class="brand-name-wrapper">
-                <a class="navbar-brand" href="#">
-                    MLRG
-                </a>
-            </div>           
-        </div>
-
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- Main Menu -->
+            <div class="side-menu-container">
+                <ul class="nav navbar-nav">
+                    <li><a href="#" ui-sref="home.createBib.addBib.types"><span class="glyphicon glyphicon-send chakk"></span> Add References</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-search"></span> Search References</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-cloud"></span> Workspace</a></li>
+                </ul>
+            </div>
+        </nav>
     </div>
-
-    <!-- Main Menu -->
-    <div class="side-menu-container">
-        <ul class="nav navbar-nav">
-            <li><a href="#" ui-sref="home.createBib.addBib.types"><span class="glyphicon glyphicon-send"></span> Add References</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-search"></span> Search References</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-cloud"></span> Workspace</a></li>            
-        </ul>
-    </div>
-</nav>
-    
-    </div>
-
     <!-- Main Content -->
     <div class="container-fluid">
         <div class="side-body">
-        	<ui-view></ui-view>
+            <ui-view></ui-view>
         </div>
-           
     </div>
 </div>
