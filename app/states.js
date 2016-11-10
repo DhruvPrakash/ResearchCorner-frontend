@@ -56,7 +56,21 @@ module.exports = ['$stateProvider', '$urlRouterProvider','$locationProvider', fu
 			},
 			'inProceedings-optional@home.createBib.addBib.types': {
 				templateUrl: '/app/bib-create/bib-add/inProceedings/inproceedings-optional.partial.html'
-			}
+			},
+
+			/* InCollection */
+			'inCollection@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/inCollection/incollection.partial.html'
+			},
+			'inCollection-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/inCollection/incollection-required.partial.html'
+			},
+			'inCollection-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/inCollection/incollection-general.partial.html'
+			},
+			'inCollection-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/inCollection/incollection-optional.partial.html'
+			},
 
 		}
 	})
