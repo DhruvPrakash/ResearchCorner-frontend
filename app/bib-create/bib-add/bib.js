@@ -3,23 +3,34 @@
 angular.module('mlrg.bibcreate')
 	.factory('Bib',Bib);
 
-	Bib.$inject = ['$http']
+	Bib.$inject = ['$http'];
+
 
 	function Bib($http){
 		
 		var availableTypes = [
 			{id: '1', name: 'Article'},
 			{id: '2', name: 'InProceedings'},
-			{id: '3', name: 'InBook'}
+			{id: '3', name: 'Proceedings'},
+			{id: '4', name: 'InBook'},
+			{id: '5', name: 'Book'},
+			{id: '6', name: 'InCollection'},
+			{id: '7', name: 'PhdThesis'},
+			{id: '8', name: 'TechReport'},
+			{id: '9', name: 'Misc'}
 		];
 
 		var selectedType = {id: '1', name: 'Article'};
 		var selectedTab = 'required';
 
-		var articleFields = ['author','title','journal','year','doi','abstract','volume','pages','note','number','month','crossref','keywords','file','url','comment','owner','timestamp'];
-		var inProceedingsFields = ['author','title','book','year','abstract'];
-		var inBookFields = [];
-
+		var articleFields = ['author','title','journal','year','doi','abstract','volume','pages','note','__markedentry','number','month','issn','crossref','keywords','file','url','comment','owner','timestamp'];
+		var proceedingsFields = ['title','year','doi','abstract','editor','number','address','note','organization','volume','series','publisher','month','crossref','keywords','file','url','comment','owner','timestamp'];
+		var inProceedingsFields = ['author','title','booktitle','year','doi','abstract','editor','number','pages','month','publisher','volume','series','address','organization','note','__markedentry','crossref','keywords','file','url','comment','owner','timestamp'];
+		var inBookFields = [''];
+		var inCollectionFields = ['author','title','booktitle','publisher','year','doi','abstract','editor','number','type','pages','edition','note','volume','series','chapter','address','month','crossref','keywords','file','url','comment','owner','timestamp'];
+		var phdThesisFields = ['author','title','school','year','doi','abstract','type','month','address','note','crossref','keywords','file','url','comment','owner','timestamp'];
+		var techReportFields = ['author','title','institution','year','doi','abstract','type','address','note','number','month','crossref','keywords','file','url','comment','owner','timestamp'];
+		var miscFields = ['doi','abstract','author','howpublished','year','title','month','note','crossref','keywords','file','url','comment','owner','timestamp'];
 
 		var bibFields = {
 			metadata: {
@@ -98,13 +109,32 @@ angular.module('mlrg.bibcreate')
 					makeOtherFieldsEmpty(data, articleFields);
 					break;
 				}
-
 				case 'inproceedings': {
 					makeOtherFieldsEmpty(data,inProceedingsFields);
 					break;
 				}
 				case 'inbook': {
 					makeOtherFieldsEmpty(data, inBookFields);
+					break;
+				}
+				case 'incollection': {
+					makeOtherFieldsEmpty(data, inCollectionFields);
+					break;
+				}
+				case 'proceedings': {
+					makeOtherFieldsEmpty(data, proceedingsFields);
+					break;
+				}
+				case 'phdthesis': {
+					makeOtherFieldsEmpty(data,phdThesisFields);
+					break;
+				}
+				case 'techreport': {
+					makeOtherFieldsEmpty(data,techReportFields);
+					break;
+				}
+				case 'misc': {
+					makeOtherFieldsEmpty(data,miscFields);
 					break;
 				}
 			}

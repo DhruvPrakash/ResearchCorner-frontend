@@ -56,8 +56,78 @@ module.exports = ['$stateProvider', '$urlRouterProvider','$locationProvider', fu
 			},
 			'inProceedings-optional@home.createBib.addBib.types': {
 				templateUrl: '/app/bib-create/bib-add/inProceedings/inproceedings-optional.partial.html'
-			}
+			},
 
+			/* Proceedings */
+			'proceedings@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/proceedings/proceedings.partial.html'
+			},
+			'proceedings-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/proceedings/proceedings-required.partial.html'
+			},
+			'proceedings-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/proceedings/proceedings-general.partial.html'
+			},
+			'proceedings-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/proceedings/proceedings-optional.partial.html'
+			},
+
+			/* InCollection */
+			'inCollection@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/inCollection/incollection.partial.html'
+			},
+			'inCollection-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/inCollection/incollection-required.partial.html'
+			},
+			'inCollection-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/inCollection/incollection-general.partial.html'
+			},
+			'inCollection-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/inCollection/incollection-optional.partial.html'
+			},
+
+
+			/* PhdThesis */
+			'phdThesis@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/phdThesis/phdthesis.partial.html'
+			},
+			'phdThesis-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/phdThesis/phdthesis-required.partial.html'
+			},
+			'phdThesis-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/phdThesis/phdthesis-general.partial.html'
+			},
+			'phdThesis-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/phdThesis/phdthesis-optional.partial.html'
+			},
+
+			/* TechReport */
+			'techReport@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/techReport/techreport.partial.html'
+			},
+			'techReport-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/techReport/techreport-required.partial.html'
+			},
+			'techReport-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/techReport/techreport-general.partial.html'
+			},
+			'techReport-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/techReport/techreport-optional.partial.html'
+			},
+
+			/* Misc */
+			'misc@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/misc/misc.partial.html'
+			},
+			'misc-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/misc/misc-required.partial.html'
+			},
+			'misc-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/misc/misc-general.partial.html'
+			},
+			'misc-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/misc/misc-optional.partial.html'
+			},
 		}
 	})
 
