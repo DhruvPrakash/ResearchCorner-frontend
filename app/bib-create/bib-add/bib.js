@@ -11,17 +11,20 @@ angular.module('mlrg.bibcreate')
 		var availableTypes = [
 			{id: '1', name: 'Article'},
 			{id: '2', name: 'InProceedings'},
-			{id: '3', name: 'InBook'},
-			{id: '4', name: 'InCollection'}
+			{id: '3', name: 'Proceedings'},
+			{id: '4', name: 'InBook'},
+			{id: '5', name: 'Book'},
+			{id: '6', name: 'InCollection'}
 		];
 
 		var selectedType = {id: '1', name: 'Article'};
 		var selectedTab = 'required';
 
 		var articleFields = ['author','title','journal','year','doi','abstract','volume','pages','note','__markedentry','number','month','issn','crossref','keywords','file','url','comment','owner','timestamp'];
+		var proceedingsFields = ['title','year','doi','abstract','editor','number','address','note','organization','volume','series','publisher','month','crossref','keywords','file','url','comment','owner','timestamp'];
 		var inProceedingsFields = ['author','title','booktitle','year','doi','abstract','editor','number','pages','month','publisher','volume','series','address','organization','note','__markedentry','crossref','keywords','file','url','comment','owner','timestamp'];
 		var inBookFields = [''];
-		var inCollectionFields = ['author','title','booktitle','publisher','year','doi''abstract','editor','number','type','pages','edition','note','volume','series','chapter','address','month','crossref','keywords','file','url','comment','owner','timestamp'];
+		var inCollectionFields = ['author','title','booktitle','publisher','year','doi','abstract','editor','number','type','pages','edition','note','volume','series','chapter','address','month','crossref','keywords','file','url','comment','owner','timestamp'];
 
 		var bibFields = {
 			metadata: {
@@ -110,6 +113,10 @@ angular.module('mlrg.bibcreate')
 				}
 				case 'incollection': {
 					makeOtherFieldsEmpty(data, inCollectionFields);
+					break;
+				}
+				case 'proceedings': {
+					makeOtherFieldsEmpty(data, proceedingsFields);
 					break;
 				}
 			}

@@ -58,6 +58,20 @@ module.exports = ['$stateProvider', '$urlRouterProvider','$locationProvider', fu
 				templateUrl: '/app/bib-create/bib-add/inProceedings/inproceedings-optional.partial.html'
 			},
 
+			/* Proceedings */
+			'proceedings@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/proceedings/proceedings.partial.html'
+			},
+			'proceedings-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/proceedings/proceedings-required.partial.html'
+			},
+			'proceedings-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/proceedings/proceedings-general.partial.html'
+			},
+			'proceedings-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/proceedings/proceedings-optional.partial.html'
+			},
+
 			/* InCollection */
 			'inCollection@home.createBib.addBib': {
 				templateUrl: '/app/bib-create/bib-add/inCollection/incollection.partial.html'
