@@ -58,6 +58,105 @@ module.exports = ['$stateProvider', '$urlRouterProvider','$locationProvider', fu
 				templateUrl: '/app/bib-create/bib-add/inProceedings/inproceedings-optional.partial.html'
 			},
 
+			/*inBook */
+			'inBook@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/inBook/inbook.partial.html'
+			},
+			'inBook-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/inBook/inbook-required.partial.html'
+			},
+			'inBook-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/inBook/inbook-general.partial.html'
+			},
+			'inBook-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/inBook/inbook-optional.partial.html'
+			},
+
+			/*masterThesis */
+			'masterThesis@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/masterThesis/masterThesis.partial.html'
+			},
+			'masterThesis-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/masterThesis/masterThesis-required.partial.html'
+			},
+			'masterThesis-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/masterThesis/masterThesis-general.partial.html'
+			},
+			'masterThesis-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/masterThesis/masterThesis-optional.partial.html'
+			},
+
+			/* unpublished*/
+			'unpublished@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/unpublished/unpublished.partial.html'
+			},
+			'unpublished-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/unpublished/unpublished-required.partial.html'
+			},
+			'unpublished-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/unpublished/unpublished-general.partial.html'
+			},
+			'unpublished-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/unpublished/unpublished-optional.partial.html'
+			},
+
+			/* manual*/
+			'manual@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/manual/manual.partial.html'
+			},
+			'manual-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/manual/manual-required.partial.html'
+			},
+			'manual-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/manual/manual-general.partial.html'
+			},
+			'manual-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/manual/manual-optional.partial.html'
+			},
+
+			/* book*/
+			'book@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/book/book.partial.html'
+			},
+			'book-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/book/book-required.partial.html'
+			},
+			'book-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/book/book-general.partial.html'
+			},
+			'book-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/book/book-optional.partial.html'
+			},
+
+			/* booklet*/
+			'booklet@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/booklet/booklet.partial.html'
+			},
+			'booklet-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/booklet/booklet-required.partial.html'
+			},
+			'booklet-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/booklet/booklet-general.partial.html'
+			},
+			'booklet-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/booklet/booklet-optional.partial.html'
+
+			},
+
+			/* conference*/
+			'conference@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/conference/conference.partial.html'
+			},
+			'conference-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/conference/conference-required.partial.html'
+			},
+			'conference-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/conference/conference-general.partial.html'
+			},
+			'conference-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/conference/conference-optional.partial.html'
+			},
+
 			/* Proceedings */
 			'proceedings@home.createBib.addBib': {
 				templateUrl: '/app/bib-create/bib-add/proceedings/proceedings.partial.html'

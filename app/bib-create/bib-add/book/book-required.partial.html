@@ -5,16 +5,13 @@
     		<input type="text" class="form-control" id="bib-author" placeholder="Author:" ng-model="bib.bibFields.payload.author">
         </div>
     </div>
-
     <div class="form-group col-sm-6 col-md-6 col-xs-6">
-        <label for="bib-journal" class="col-sm-2 col-md-2 col-xs-2 control-label">Journal</label>
+        <label for="bib-editor" class="col-sm-2 col-md-2 col-xs-2 control-label">Editor</label>
         <div class="col-sm-8 col-md-8 col-xs-8">
-    		<input type="text" class="form-control" id="bib-journal" placeholder="Journal" ng-model="bib.bibFields.payload.journal">
+            <input type="text" class="form-control" id="bib-editor" placeholder="Editor" ng-model="bib.bibFields.payload.editor">
         </div>
-    </div>    
+    </div>
 </div>
-
-
 
 <div class="row">
     <div class="form-group col-sm-6 col-md-6 col-xs-6">
@@ -33,12 +30,18 @@
 </div>
 
 
-
 <div class="row">
     <div class="form-group col-sm-6 col-md-6 col-xs-6">
         <label for="bib-doi" class="col-sm-2 col-md-2 col-xs-2 control-label">DOI</label>
         <div class="col-sm-8 col-md-8 col-xs-8">
             <input type="text" class="form-control" id="bib-doi" placeholder="DOI" ng-model="bib.bibFields.payload.doi">
+        </div>
+    </div>
+
+    <div class="form-group col-sm-6 col-md-6 col-xs-6">
+        <label for="bib-publisher" class="col-sm-2 col-md-2 col-xs-2 control-label">Publisher</label>
+        <div class="col-sm-8 col-md-8 col-xs-8">
+            <input type="text" class="form-control" id="bib-publisher" placeholder="Publisher" ng-model="bib.bibFields.payload.publisher">
         </div>
     </div>
 </div>
