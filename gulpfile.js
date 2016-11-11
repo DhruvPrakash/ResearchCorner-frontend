@@ -21,12 +21,14 @@ gulp.task('default', ['css-concat','browserify','browser-sync','watch']);
 
 gulp.task('watch', function(){
 	gulp.watch('app/**/*.js', ['browserify']);
+	gulp.watch('app/styles/*.css',['css-concat']);
 	//gulp.watch('source/less/**/*.less', ['build-css']);
 });
 
 gulp.task('browser-sync', function(){
 	var files = ['app/**/*.html',
-		'app/**/*.js'
+		'app/**/*.js',
+		'app/styles/*.css'
 	];
 
 	browserSync.init(files, {
