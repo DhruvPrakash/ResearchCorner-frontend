@@ -24,6 +24,7 @@
 		<div ui-view="inBook" ng-if="bib.selectedType.name === 'InBook'"></div>
 		<div ui-view="inCollection" ng-if="bib.selectedType.name === 'InCollection'"></div>
 		<div ui-view="proceedings" ng-if="bib.selectedType.name === 'Proceedings'"></div>
+		<div ui-view="phdThesis" ng-if="bib.selectedType.name === 'PhdThesis'"></div>
 		<div class="form-group col-sm-12 col-md-12 col-lg-12 col-xs-12">
 			<div class="col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 col-xs-offset-1 col-xs-10">
 				<button type="submit" class="btn btn-default" ng-click="save()">Save</button>

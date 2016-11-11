@@ -14,7 +14,8 @@ angular.module('mlrg.bibcreate')
 			{id: '3', name: 'Proceedings'},
 			{id: '4', name: 'InBook'},
 			{id: '5', name: 'Book'},
-			{id: '6', name: 'InCollection'}
+			{id: '6', name: 'InCollection'},
+			{id: '7', name: 'PhdThesis'}
 		];
 
 		var selectedType = {id: '1', name: 'Article'};
@@ -25,6 +26,7 @@ angular.module('mlrg.bibcreate')
 		var inProceedingsFields = ['author','title','booktitle','year','doi','abstract','editor','number','pages','month','publisher','volume','series','address','organization','note','__markedentry','crossref','keywords','file','url','comment','owner','timestamp'];
 		var inBookFields = [''];
 		var inCollectionFields = ['author','title','booktitle','publisher','year','doi','abstract','editor','number','type','pages','edition','note','volume','series','chapter','address','month','crossref','keywords','file','url','comment','owner','timestamp'];
+		var phdThesisFields = ['author','title','school','year','doi','abstract','type','month','address','note','crossref','keywords','file','url','comment','owner','timestamp'];
 
 		var bibFields = {
 			metadata: {
@@ -117,6 +119,10 @@ angular.module('mlrg.bibcreate')
 				}
 				case 'proceedings': {
 					makeOtherFieldsEmpty(data, proceedingsFields);
+					break;
+				}
+				case 'phdthesis': {
+					makeOtherFieldsEmpty(data,phdThesisFields);
 					break;
 				}
 			}

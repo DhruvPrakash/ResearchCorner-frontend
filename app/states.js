@@ -86,6 +86,20 @@ module.exports = ['$stateProvider', '$urlRouterProvider','$locationProvider', fu
 				templateUrl: '/app/bib-create/bib-add/inCollection/incollection-optional.partial.html'
 			},
 
+
+			/* PhdThesis */
+			'phdThesis@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/phdThesis/phdthesis.partial.html'
+			},
+			'phdThesis-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/phdThesis/phdthesis-required.partial.html'
+			},
+			'phdThesis-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/phdThesis/phdthesis-general.partial.html'
+			},
+			'phdThesis-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/phdThesis/phdthesis-optional.partial.html'
+			},
 		}
 	})
 
