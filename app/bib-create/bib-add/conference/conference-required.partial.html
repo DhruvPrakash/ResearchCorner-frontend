@@ -2,38 +2,30 @@
     <div class="form-group col-sm-6 col-md-6 col-xs-6">
         <label for="bib-author" class="col-sm-2 col-md-2 col-xs-2 control-label">Author</label>
         <div class="col-sm-8 col-md-8 col-xs-8">
-    		<input type="text" class="form-control" id="bib-author" placeholder="Author:" ng-model="bib.bibFields.payload.author">
+            <input type="text" class="form-control" id="bib-author" placeholder="Author:" ng-model="bib.bibFields.payload.author">
         </div>
     </div>
-
     <div class="form-group col-sm-6 col-md-6 col-xs-6">
-        <label for="bib-journal" class="col-sm-2 col-md-2 col-xs-2 control-label">Journal</label>
+        <label for="bib-journal" class="col-sm-2 col-md-2 col-xs-2 control-label">Title</label>
         <div class="col-sm-8 col-md-8 col-xs-8">
-    		<input type="text" class="form-control" id="bib-journal" placeholder="Journal" ng-model="bib.bibFields.payload.journal">
+            <input type="text" class="form-control" id="bib-journal" placeholder="Title" ng-model="bib.bibFields.payload.title">
         </div>
-    </div>    
+    </div>
 </div>
-
-
-
 <div class="row">
     <div class="form-group col-sm-6 col-md-6 col-xs-6">
-        <label for="bib-title" class="col-sm-2 col-md-2 col-xs-2 control-label">Title</label>
+        <label for="bib-title" class="col-sm-2 col-md-2 col-xs-2 control-label">Book Title</label>
         <div class="col-sm-8 col-md-8 col-xs-8">
-    		<input type="text" class="form-control" id="bib-title" placeholder="Title" ng-model="bib.bibFields.payload.title">
+            <input type="text" class="form-control" id="bib-title" placeholder="Title" ng-model="bib.bibFields.payload.booktitle">
         </div>
     </div>
-    
     <div class="form-group col-sm-6 col-md-6 col-xs-6">
         <label for="bib-year" class="col-sm-2 col-md-2 col-xs-2 control-label">Year</label>
         <div class="col-sm-8 col-md-8 col-xs-8">
-    		<input type="text" class="form-control" id="bib-year" placeholder="Year" ng-model=bib.bibFields.payload.year>
+            <input type="text" class="form-control" id="bib-year" placeholder="Year" ng-model="bib.bibFields.payload.year">
         </div>
     </div>
 </div>
-
-
-
 <div class="row">
     <div class="form-group col-sm-6 col-md-6 col-xs-6">
         <label for="bib-doi" class="col-sm-2 col-md-2 col-xs-2 control-label">DOI</label>
@@ -42,12 +34,11 @@
         </div>
     </div>
 </div>
-
 <div class="row">
     <div class="form-group col-sm-12 col-md-12 col-xs-12">
         <label for="bib-abstract" class="col-sm-1 col-md-1 col-xs-1 control-label">Abstract</label>
         <div class="col-sm-10 col-md-10 col-xs-10">
-            <textarea name="bib-abstract" id="bib-abstract" class="form-control" rows="3" ng-model="bib.bibFields.payload.abstract"></textarea>
-        </div>      
+            <textarea name="bib-abstract" id="input" class="form-control" rows="3" ng-model="bib.bibFields.payload.abstract"></textarea>
+        </div>
     </div>
 </div>
