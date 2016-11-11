@@ -100,6 +100,20 @@ module.exports = ['$stateProvider', '$urlRouterProvider','$locationProvider', fu
 			'phdThesis-optional@home.createBib.addBib.types': {
 				templateUrl: '/app/bib-create/bib-add/phdThesis/phdthesis-optional.partial.html'
 			},
+
+			/* TechReport */
+			'techReport@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/techReport/techreport.partial.html'
+			},
+			'techReport-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/techReport/techreport-required.partial.html'
+			},
+			'techReport-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/techReport/techreport-general.partial.html'
+			},
+			'techReport-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/techReport/techreport-optional.partial.html'
+			},
 		}
 	})
 

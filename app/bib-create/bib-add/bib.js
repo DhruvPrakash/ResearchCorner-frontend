@@ -15,7 +15,8 @@ angular.module('mlrg.bibcreate')
 			{id: '4', name: 'InBook'},
 			{id: '5', name: 'Book'},
 			{id: '6', name: 'InCollection'},
-			{id: '7', name: 'PhdThesis'}
+			{id: '7', name: 'PhdThesis'},
+			{id: '8', name: 'TechReport'}
 		];
 
 		var selectedType = {id: '1', name: 'Article'};
@@ -27,6 +28,7 @@ angular.module('mlrg.bibcreate')
 		var inBookFields = [''];
 		var inCollectionFields = ['author','title','booktitle','publisher','year','doi','abstract','editor','number','type','pages','edition','note','volume','series','chapter','address','month','crossref','keywords','file','url','comment','owner','timestamp'];
 		var phdThesisFields = ['author','title','school','year','doi','abstract','type','month','address','note','crossref','keywords','file','url','comment','owner','timestamp'];
+		var techReportFields = ['author','title','institution','year','doi','abstract','type','address','note','number','month','crossref','keywords','file','url','comment','owner','timestamp'];
 
 		var bibFields = {
 			metadata: {
@@ -123,6 +125,10 @@ angular.module('mlrg.bibcreate')
 				}
 				case 'phdthesis': {
 					makeOtherFieldsEmpty(data,phdThesisFields);
+					break;
+				}
+				case 'techreport': {
+					makeOtherFieldsEmpty(data,techReportFields);
 					break;
 				}
 			}
