@@ -114,6 +114,20 @@ module.exports = ['$stateProvider', '$urlRouterProvider','$locationProvider', fu
 			'techReport-optional@home.createBib.addBib.types': {
 				templateUrl: '/app/bib-create/bib-add/techReport/techreport-optional.partial.html'
 			},
+
+			/* Misc */
+			'misc@home.createBib.addBib': {
+				templateUrl: '/app/bib-create/bib-add/misc/misc.partial.html'
+			},
+			'misc-required@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/misc/misc-required.partial.html'
+			},
+			'misc-general@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/misc/misc-general.partial.html'
+			},
+			'misc-optional@home.createBib.addBib.types': {
+				templateUrl: '/app/bib-create/bib-add/misc/misc-optional.partial.html'
+			},
 		}
 	})
 
