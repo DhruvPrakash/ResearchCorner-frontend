@@ -239,6 +239,15 @@ module.exports = ['$stateProvider', '$urlRouterProvider','$locationProvider', fu
 				controller: 'BibUploadController'
 			}
 		}
+	})
+
+	.state('home.search',   {
+		url: '/search',
+		templateUrl: '/app/search/search.partial.html',
+		controller: 'SearchController'
+	
+
+
 	});
 
 }];
