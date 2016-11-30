@@ -241,13 +241,13 @@ module.exports = ['$stateProvider', '$urlRouterProvider','$locationProvider', fu
 		}
 	})
 
-	// .state('home.search',   {
-	// 	url: '/search',
-	// 	templateUrl: '/app/search/search.partial.html',
-	// 	controller: 'SearchController'
+	.state('home.search',   {
+		url: '/search',
+		templateUrl: '/app/search/search.partial.html',
+		controller: 'SearchController'
 	
 
 
-	// });
+	});
 
 }];

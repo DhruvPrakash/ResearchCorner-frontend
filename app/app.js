@@ -8,7 +8,7 @@ var states = require('./states');
 require('./home');
 require('./bib-create');
 require('./search')
-var app = angular.module('mlrg',['ui.bootstrap','ui.router','mlrg.home','mlrg.bibcreate']);
+var app = angular.module('mlrg',['ui.bootstrap','ui.router','mlrg.home','mlrg.bibcreate','mlrg.search']);
 
 app.config(states);
 
