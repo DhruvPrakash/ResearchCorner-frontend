@@ -7,7 +7,8 @@ require('angular-ui-bootstrap');
 var states = require('./states');
 require('./home');
 require('./bib-create');
-var app = angular.module('mlrg',['ui.bootstrap','ui.router','mlrg.home','mlrg.bibcreate']);
+require('./search')
+var app = angular.module('mlrg',['ui.bootstrap','ui.router','mlrg.home','mlrg.bibcreate','mlrg.search']);
 
 app.config(states);
 
