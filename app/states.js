@@ -239,6 +239,9 @@ module.exports = ['$stateProvider', '$urlRouterProvider','$locationProvider', fu
 				controller: 'BibUploadController'
 			}
 		}
+	})
+	.state('home.search',{
+
 	});
 
 }];
