@@ -8,6 +8,13 @@
 .side-body {
 	margin-top: 50px;
 }
+.icon-left i {
+	left: 0;
+}
+
+.icon-left input {
+	padding-left: 42.5px;
+}
 :focus {
   outline: none;
 }
@@ -445,4 +452,55 @@
 
 .space-above{
 	margin-top:20px;
+}
+
+.universal-content-padding {
+	padding-top: 40px;
+	padding-left: 30px;
+}
+
+.btn-custom-alt { 
+  color: #ffffff; 
+  background-color: #611BBD; 
+  border-color: #130269; 
+} 
+ 
+.btn-custom-alt:hover, 
+.btn-custom-alt:focus, 
+.btn-custom-alt:active, 
+.btn-custom-alt.active, 
+.open .dropdown-toggle.btn-custom-alt { 
+  color: #ffffff; 
+  background-color: #49247A; 
+  border-color: #130269; 
+} 
+ 
+.btn-custom-alt:active, 
+.btn-custom-alt.active, 
+.open .dropdown-toggle.btn-custom-alt { 
+  background-image: none; 
+} 
+ 
+.btn-custom-alt.disabled, 
+.btn-custom-alt[disabled], 
+fieldset[disabled] .btn-custom-alt, 
+.btn-custom-alt.disabled:hover, 
+.btn-custom-alt[disabled]:hover, 
+fieldset[disabled] .btn-custom-alt:hover, 
+.btn-custom-alt.disabled:focus, 
+.btn-custom-alt[disabled]:focus, 
+fieldset[disabled] .btn-custom-alt:focus, 
+.btn-custom-alt.disabled:active, 
+.btn-custom-alt[disabled]:active, 
+fieldset[disabled] .btn-custom-alt:active, 
+.btn-custom-alt.disabled.active, 
+.btn-custom-alt[disabled].active, 
+fieldset[disabled] .btn-custom-alt.active { 
+  background-color: #611BBD; 
+  border-color: #130269; 
+} 
+ 
+.btn-custom-alt .badge { 
+  color: #611BBD; 
+  background-color: #ffffff; 
 }

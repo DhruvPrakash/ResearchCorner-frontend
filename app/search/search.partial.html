@@ -1,1 +1,64 @@
-<div>Work in progress</div>
+<section class="universal-content-padding">
+    <div class="form-group has-feedback icon-left">
+        <i class="glyphicon glyphicon-search form-control-feedback"></i>
+        <input type="text" class="form-control" ng-model="searchParams.searchText" ng-change="search(1)" />
+    </div>
+
+	
+
+    <span class="btn btn-info">View selected bibs</span>
+
+    <span class="btn btn-primary ">+ Add to bib list</span>
+
+	<div class="space-above" ng-if="error.errorPresent"> {{error.errorMessage}} </div>
+
+	<div class="row space-above">
+		<div ng-repeat="bib in searchedBibs">
+        	<div class="col-md-12 nopadding">
+        	
+	        	<div class="col-md-1 nopadding">
+	        		<input type="checkbox">
+	        	</div>
+	        	<div class="col-md-10 nopadding">
+	        		<span ng-if="!!bib.title"><strong>Title:</strong> {{bib.title}}</span>
+	        		<br>
+	        		<span ng-if="!!bib.author"><strong>Author:</strong> {{bib.author}}</span>
+	        		<br>
+	        		<span ng-if="!!bib.year"><strong>Year:</strong> {{bib.year}}</span>
+	        		<br>
+	        		<span class="btn btn-success" ng-click="viewAbstract(bib)">View Abstract</span>
+				    <span class="btn btn-info">View Full Details</span>
+	        		<span class="btn btn-primary">PDF</span>
+	        		<span class="btn btn-custom-alt">Biblist(s) this bib is present in</span>
+	        	</div>
+	        	<div class="col-md-1" style="text-align: right;">
+	        		<i class="glyphicon glyphicon-edit"></i>
+	        	</div> 
+        	</div>
+	        <div class="col-md-12 nopadding">
+	        	<hr>
+	        </div>
+				
+        </div>
+
+    </div>
+
+	<div class="row space-above" ng-show="searchedBibs.length !== 0">
+		<div class="col-md-12 nopadding">
+			<div class="col-md-4">
+				Page {{pagination.currentPage}} of {{pagination.totalPages}}
+			</div>
+			
+			<div class="col-md-8">
+				
+				<ul uib-pagination items-per-page="pagination.itemsPerPage" total-items="pagination.totalItems" ng-model="pagination.currentPage" ng-change="search(pagination.currentPage)"></ul>
+
+			</div>
+		</div>
+	</div>
+
+
+    
+
+
+</section>
