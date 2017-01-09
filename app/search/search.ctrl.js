@@ -28,6 +28,12 @@ function SearchController($scope, SearchBib, $uibModal) {
 
     $scope.searchedBibs = [];
 
+    var setPagination = function(currentPage, totalPages, totalItems){
+    	$scope.pagination.currentPage = null;
+        $scope.pagination.totalPages = null;
+        $scope.pagination.totalItems = null;
+    };
+
 
     $scope.search = function(pageNum) {
 
@@ -37,17 +43,23 @@ function SearchController($scope, SearchBib, $uibModal) {
             SearchBib.search($scope.searchParams).then(function(result) {
                 $scope.error.errorPresent = false;
                 $scope.searchedBibs = result.data.payload;
-                $scope.pagination.currentPage = result.data.metadata.current_page;
-                $scope.pagination.totalPages = Math.ciel(+result.data.metadata.total_records/$scope.pagination.itemsPerPage);
-                $scope.pagination.totalItems = result.data.metadata.total_records;
-            }, function(result) {
-                $scope.searchedBibs = [];
-                $scope.error.errorPresent = true;
-                $scope.error.errorMessage = result.data.error.message;
+                
+                if ($scope.searchedBibs.length > 0) {
+                	$scope.pagination.currentPage = result.data.metadata.current_page;
+                	$scope.pagination.totalPages = Math.ceil(+result.data.metadata.total_records/$scope.pagination.itemsPerPage);
+                	$scope.pagination.totalItems = result.data.metadata.total_records;
+                } else {
+                	$scope.error.errorPresent = true;
+                	$scope.error.errorMessage = "Sorry, no bibs found matching that search query";
+                	setPagination(null, null, null);	
+                }
+                
+            
             });
         } else {
             $scope.searchedBibs = [];
             $scope.error.errorPresent = false;
+            setPagination(null, null, null);
         }
     };
 
