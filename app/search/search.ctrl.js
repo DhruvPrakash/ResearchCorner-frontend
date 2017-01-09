@@ -38,7 +38,7 @@ function SearchController($scope, SearchBib, $uibModal) {
                 $scope.error.errorPresent = false;
                 $scope.searchedBibs = result.data.payload;
                 $scope.pagination.currentPage = result.data.metadata.current_page;
-                $scope.pagination.totalPages = result.data.metadata.total_pages;
+                $scope.pagination.totalPages = Math.ciel(+result.data.metadata.total_records/$scope.pagination.itemsPerPage);
                 $scope.pagination.totalItems = result.data.metadata.total_records;
             }, function(result) {
                 $scope.searchedBibs = [];
@@ -68,5 +68,22 @@ function SearchController($scope, SearchBib, $uibModal) {
             }
         });
     };
+
+    // $scope.viewSelectedBibs = function(){
+
+    // 	var modalInstance = $uibModal.open({
+    //         templateUrl: '/app/search/view-selected-bibs/view-abstract-modal.partial.html',
+    //         controller: 'ViewAbstractModalInstanceController',
+    //         size: 'md',
+    //         resolve: {
+    //             bibDetails: function() {
+    //                 return {
+    //                 	abstract: bibItem.abstract,
+    //                 	title: bibItem.title
+    //                 };
+    //             }
+    //         }
+    //     });
+    // };
 
 }
