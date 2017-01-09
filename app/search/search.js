@@ -5,7 +5,7 @@
 //TODO: Remove this mock (success, failure) when done from inject array, from function param
 //TODO: Remove $q later from inject array, from function param, from search function
 //TODO: Remove the random success failure!
-require('./search-mock');
+//require('./search-mock');
 angular.module('mlrg.search')
 	.factory('SearchBib', SearchBib);
 
@@ -16,7 +16,7 @@ angular.module('mlrg.search')
 
 
 		var search = function(searchParams){
-			return $http.get('/api/search/',{
+			return $http.post('/api/search/',{
 				"metadata" : {
 					"page" : searchParams.page
 				},
