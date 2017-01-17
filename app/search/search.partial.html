@@ -6,7 +6,7 @@
 
 	
 
-    <span class="btn btn-info">View selected bibs</span>
+    <span class="btn btn-info" ng-click="viewSelectedBibs()">View selected bibs</span>
 
     <span class="btn btn-primary ">+ Add to bib list</span>
 
@@ -51,7 +51,7 @@
 			
 			<div class="col-md-8">
 				
-				<ul uib-pagination items-per-page="pagination.itemsPerPage" max-size="5" total-items="pagination.totalItems" ng-model="pagination.currentPage" ng-change="search(pagination.currentPage)"></ul>
+				<ul uib-pagination items-per-page="pagination.itemsPerPage" max-size="10" total-items="pagination.totalItems" ng-model="pagination.currentPage" ng-change="search(pagination.currentPage)"></ul>
 
 			</div>
 		</div>

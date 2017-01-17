@@ -81,21 +81,21 @@ function SearchController($scope, SearchBib, $uibModal) {
         });
     };
 
-    // $scope.viewSelectedBibs = function(){
+    $scope.viewSelectedBibs = function(){
 
-    // 	var modalInstance = $uibModal.open({
-    //         templateUrl: '/app/search/view-selected-bibs/view-abstract-modal.partial.html',
-    //         controller: 'ViewAbstractModalInstanceController',
-    //         size: 'md',
-    //         resolve: {
-    //             bibDetails: function() {
-    //                 return {
-    //                 	abstract: bibItem.abstract,
-    //                 	title: bibItem.title
-    //                 };
-    //             }
-    //         }
-    //     });
-    // };
+    	var modalInstance = $uibModal.open({
+            templateUrl: '/app/search/view-selected-bibs/view-selected-modal.partial.html',
+            controller: 'ViewSelectedBibsModalInstanceController',
+            size: 'md',
+            // resolve: {
+            //     bibDetails: function() {
+            //         return {
+            //         	abstract: bibItem.abstract,
+            //         	title: bibItem.title
+            //         };
+            //     }
+            // }
+        });
+    };
 
 }

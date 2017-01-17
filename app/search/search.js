@@ -31,7 +31,7 @@ angular.module('mlrg.search')
 			// var randomBoolean = Math.random() >= 0.5;
 			//return randomBoolean ? $q.resolve(SearchMockSuccess1) : $q.reject(SearchMockFailure);
 		
-			// return searchParams.page == 1 ? $q.resolve(SearchMockSuccess1) : $q.resolve(SearchMockSuccess2)
+			//return searchParams.page == 1 ? $q.resolve(SearchMockSuccess1) : $q.resolve(SearchMockSuccess2)
 		
 			//return $q.reject(SearchMockFailure);
 		};
