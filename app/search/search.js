@@ -18,7 +18,8 @@ angular.module('mlrg.search')
 		var search = function(searchParams){
 			return $http.post('/api/search/',{
 				"metadata" : {
-					"page" : searchParams.page
+					"page" : searchParams.page,
+					"activeFilters": ["searchQuery"]
 				},
 				"payload" : {
 					'searchQuery': searchParams.searchText,
