@@ -2,9 +2,28 @@
     <h3 class="modal-title" id="modal-title">Selected Bibs</h3>
 </div>
 <div class="modal-body" id="modal-body">
-    <p>Death metal</p>
-    <p>Dream Theatre</p>
+	<p>The number of selected bibs is : {{selectedBibs.length}}
+	</p>
+    <ol>
+    	<li ng-repeat="bib in selectedBibs.slice((pagination.currentPage - 1) * pagination.itemsPerPage, pagination.currentPage * pagination.itemsPerPage)">
+    		<span>{{bib.title}}</span>
+    	</li>
+    	<button class="btn btn-danger space-above" type="button" ng-click="unselectAll()">Unselect All</button>
+    </ol>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+		<div class="col-md-12 nopadding">
+			<div class="col-md-3" style="text-align:left">
+				Page {{pagination.currentPage}} of {{pagination.totalPages}}
+			</div>
+			
+			<div class="col-md-8" style="text-align: left">
+				
+				<ul uib-pagination items-per-page="pagination.itemsPerPage" max-size="5" total-items="pagination.totalItems" ng-model="pagination.currentPage" style="margin:0" class="pagination-sm"></ul>
+
+			</div>
+
+			<button class="btn btn-primary col-md-1" type="button" ng-click="ok()">OK</button>
+		</div>
+	
 </div>

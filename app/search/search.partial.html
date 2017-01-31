@@ -5,6 +5,7 @@
     </div>
 
 	
+	<span class="btn btn-success" ng-click="addFilter()">Filter Results</span>
 
     <span class="btn btn-info" ng-click="viewSelectedBibs()">View selected bibs</span>
 
@@ -12,13 +13,17 @@
 
 	<div class="space-above" ng-if="error.errorPresent"> {{error.errorMessage}} </div>
 
-	<div class="row space-above">
+	<form class="row space-above" role="form">
 		<div ng-repeat="bib in searchedBibs">
         	<div class="col-md-12 nopadding">
         	
-	        	<div class="col-md-1 nopadding">
-	        		<input type="checkbox">
+	        	
+				<!--  Here empty label and id is necessary due to the quirks of "awesome-bootstrap-checkbox" -->
+	        	<div class="checkbox checkbox-info col-md-1 nopadding">
+	        	    <input type="checkbox" id="bib-{{bib.id}}" ng-click="addBibToSelected(bib)" ng-model="bib.isSelected">
+	        	    <label for="bib-{{bib.id}}"></label>
 	        	</div>
+
 	        	<div class="col-md-10 nopadding">
 	        		<span ng-if="!!bib.title"><strong>Title:</strong> {{bib.title}}</span>
 	        		<br>
@@ -41,7 +46,7 @@
 				
         </div>
 
-    </div>
+    </form>
 
 	<div class="row space-above" ng-show="searchedBibs.length !== 0">
 		<div class="col-md-12 nopadding">

@@ -1,12 +1,41 @@
 .space-btw-nav-content{
 	margin-top:5%;
 }
+
+[ui-view].ng-enter.add-upload-bib {
+	transition:all 0.5s ease-in-out;
+	opacity: 0;
+}
+
+[ui-view].ng-enter-active.add-upload-bib {
+ 	opacity: 1;
+}
+
+.sub-view.ng-enter {
+	transition:all 0.5s ease-in-out;
+ 	opacity: 0;
+}
+
+.sub-view.ng-enter-active {
+ 	opacity: 1;
+}
 .side-menu {
 	margin-top: 50px;
 }
 
 .side-body {
 	margin-top: 50px;
+}
+
+[ui-view].ng-enter.main-parent {
+  transition:all 0.5s ease-in-out;
+  opacity: 0;
+  transform:scale3d(0, 0, 0);
+}
+
+[ui-view].ng-enter-active.main-parent {
+  opacity: 1;
+  transform:scale3d(1, 1, 1);
 }
 .icon-left i {
 	left: 0;
@@ -49,7 +78,7 @@
 .side-menu {
   position: fixed;
   width: 300px;
-  height: 100%;
+  height: 1000px;
   background-color: #f8f8f8;
   border-right: 1px solid #e7e7e7;
 }
@@ -407,7 +436,7 @@
 }
 
 .inputfile-6 + label {
-    color: #d3394c;
+    color: #089de3;
 }
 
 .inputfile-6 + label {
@@ -504,3 +533,25 @@ fieldset[disabled] .btn-custom-alt.active {
   color: #611BBD; 
   background-color: #ffffff; 
 }
+
+/*Using glyphicons for "awesome bootstrap checkbox" because font awesome is not used in this project*/
+input[type="checkbox"].styled:checked + label:after,
+input[type="radio"].styled:checked + label:after,
+.checkbox input[type=checkbox]:checked + label:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e013";
+}
+
+input[type="checkbox"].styled:checked label:after,
+input[type="radio"].styled:checked label:after,
+.checkbox label:after {
+    padding-left: 4px;
+    padding-top: 2px;
+    font-size: 9px;
+}
+
+.checkbox input[type=checkbox] {
+  cursor: pointer;
+}
+
+

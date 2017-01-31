@@ -1,3 +1,3 @@
-<div ui-view="techReport-required" ng-show="bib.selectedTab === 'required'"></div>
-<div ui-view="techReport-optional" ng-show="bib.selectedTab === 'optional'"></div>
-<div ui-view="techReport-general" ng-show="bib.selectedTab === 'general'"></div>
+<div ng-class="'sub-view'" ui-view="techReport-required" ng-if="bib.selectedTab === 'required'"></div>
+<div ng-class="'sub-view'" ui-view="techReport-optional" ng-if="bib.selectedTab === 'optional'"></div>
+<div ng-class="'sub-view'" ui-view="techReport-general" ng-if="bib.selectedTab === 'general'"></div>
