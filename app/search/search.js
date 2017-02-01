@@ -22,7 +22,7 @@ angular.module('mlrg.search')
 			if(searchParams.year !== '') {
 				activeFilters.push('year');
 			}
-			if(searchParams.selectedType.id !== 0) {
+			if(searchParams.selectedType.id !== '0') {
 				activeFilters.push('type');
 			}
 			if(searchParams.journal !== '') {
@@ -30,6 +30,9 @@ angular.module('mlrg.search')
 			}
 			if(searchParams.keywords !== '') {
 				activeFilters.push('keywords');
+			}
+			if(searchParams.searchText !== '') {
+				activeFilters.push('searchQuery');
 			}
 			return activeFilters;
 		};
