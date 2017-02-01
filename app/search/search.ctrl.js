@@ -11,15 +11,15 @@ function SearchController($scope, SearchBib, $uibModal, SweetAlert) {
     var MAX_SELECTABLE = 250;
 
     $scope.searchParams = {
-        searchText: null,
+        searchText: '',
         limit: 10,
         page: 1,
-        author: null,
-        keywords: null,
-        year: null,
-        type: null,
+        author: '',
+        keywords: '',
+        year: '',
+        type: '',
         selectedType: {id: '0', name: 'Any Type'},
-        journal: null
+        journal: ''
     };
 
     $scope.pagination = {

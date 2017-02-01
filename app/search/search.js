@@ -16,19 +16,19 @@ angular.module('mlrg.search')
 
 		var getActiveFilters = function(searchParams) {
 			var activeFilters = [];
-			if(searchParams.author !== null) {
+			if(searchParams.author !== '') {
 				activeFilters.push('author');
 			}
-			if(searchParams.year !== null) {
+			if(searchParams.year !== '') {
 				activeFilters.push('year');
 			}
 			if(searchParams.selectedType.id !== 0) {
 				activeFilters.push('type');
 			}
-			if(searchParams.journal !== null) {
+			if(searchParams.journal !== '') {
 				activeFilters.push('journal');
 			}
-			if(searchParams.keywords !== null) {
+			if(searchParams.keywords !== '') {
 				activeFilters.push('keywords');
 			}
 			return activeFilters;

@@ -35,13 +35,13 @@ angular.module('mlrg.search')
 	        { id: '14', name: 'Misc' },
     	];
 
-		$scope.activeFilters.fromYear = ($scope.activeFilters.year !== null) ? $scope.activeFilters.year.split('|')[0] : null;
-		$scope.activeFilters.toYear = ($scope.activeFilters.year !== null) ? $scope.activeFilters.year.split('|')[1] : null;
+		$scope.activeFilters.fromYear = ($scope.activeFilters.year !== '') ? $scope.activeFilters.year.split('|')[0] : '';
+		$scope.activeFilters.toYear = ($scope.activeFilters.year !== '') ? $scope.activeFilters.year.split('|')[1] : '';
 
-		var makeEmptyNull = function(){
+		var makeNullEmpty = function(){
 			angular.forEach($scope.activeFilters, function(value, key, obj) {
 			    if (value === '' || value === undefined) {
-			    	obj[key] = null;
+			    	obj[key] = '';
 			    }
 			});
 		};
@@ -71,13 +71,13 @@ angular.module('mlrg.search')
 
 		var checkDatesFilledStatus = function(){
 			var filledCombination = 'none';
-			if($scope.activeFilters.fromYear !== null && $scope.activeFilters.toYear === null) {
+			if($scope.activeFilters.fromYear !== '' && $scope.activeFilters.toYear === '') {
 				filledCombination = 'one';
 			}
-			if($scope.activeFilters.toYear !== null && $scope.activeFilters.fromYear === null) {
+			if($scope.activeFilters.toYear !== '' && $scope.activeFilters.fromYear === '') {
 				filledCombination = 'one';
 			}
-			if($scope.activeFilters.toYear !== null && $scope.activeFilters.fromYear !== null) {
+			if($scope.activeFilters.toYear !== '' && $scope.activeFilters.fromYear !== '') {
 				filledCombination = 'both';
 			}
 			return filledCombination;
@@ -85,7 +85,7 @@ angular.module('mlrg.search')
 
 		$scope.applyFilter = function(){
 			var invalidDate, datesFilledStatus;
-			makeEmptyNull();
+			makeNullEmpty();
 			
 			datesFilledStatus = checkDatesFilledStatus();
 			if(datesFilledStatus === 'one') {
@@ -99,16 +99,16 @@ angular.module('mlrg.search')
 				}
 				$scope.activeFilters.year = $scope.activeFilters.fromYear + '|' + $scope.activeFilters.toYear;
 			} else {
-				$scope.activeFilters.year = null;
+				$scope.activeFilters.year = '';
 			}
 			$uibModalInstance.close($scope.activeFilters);
 		};
 
 		$scope.clearFilter = function(){
-			$scope.activeFilters.fromYear = null;
-			$scope.activeFilters.toYear = null;
-			$scope.activeFilters.author = null;
-			$scope.activeFilters.journal = null;
+			$scope.activeFilters.fromYear = '';
+			$scope.activeFilters.toYear = '';
+			$scope.activeFilters.author = '';
+			$scope.activeFilters.journal = '';
 			$scope.activeFilters.selectedType = $scope.availableTypes[0];
 		};
 
