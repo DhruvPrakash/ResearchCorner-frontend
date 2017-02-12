@@ -5,13 +5,13 @@
 //TODO: Remove this mock (success, failure) when done from inject array, from function param
 //TODO: Remove $q later from inject array, from function param, from search function
 //TODO: Remove the random success failure!
-// require('./search-mock');
+//require('./search-mock');
 angular.module('mlrg.search')
 	.factory('SearchBib', SearchBib);
 
-	SearchBib.$inject = ['$http','$q'];
+	SearchBib.$inject = ['$http'/*,'$q', 'SearchMockSuccess1'*/];
 
-	function SearchBib($http, $q){
+	function SearchBib($http/*, $q, SearchMockSuccess1*/){
 		
 
 		var getActiveFilters = function(searchParams) {
@@ -54,6 +54,9 @@ angular.module('mlrg.search')
 					'type':searchParams.selectedType.name 
 					}
 				});
+
+			
+			//return $q.when(SearchMockSuccess1);
 		};
 
 

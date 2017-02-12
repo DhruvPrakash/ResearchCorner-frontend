@@ -22,7 +22,6 @@ function BibAddController($scope, Bib, $state) {
     if($state.current.name === 'editModal') {
         $scope.bib.bibFields = Bib.getBibFieldsEditMode();
         $scope.bib.selectedType = Bib.getSelectedTypeEditMode();
-        console.log($scope.bib.bibFields);
     }
 
     $scope.resetTab = function() {

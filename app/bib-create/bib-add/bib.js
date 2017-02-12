@@ -202,7 +202,7 @@ function Bib($http) {
     var setBibToBeEdited = function(bib){
         bibEditMode.payload = bib;
         selectedTypeEditMode = availableTypes.filter(function(type){
-            return type.name.toLowerCase() === bib.bibtype;
+            return type.name.toLowerCase() === bib.type;
         })[0];
     };
 
