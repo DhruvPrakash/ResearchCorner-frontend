@@ -81,6 +81,7 @@ function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib)
         $scope.searchParams.page = pageNum;
 
         if (!!$scope.searchParams.searchText && $scope.searchParams.searchText.length >= 4) {
+            $scope.searchedBibs = [];
             SearchBib.search($scope.searchParams).then(function(result) {
                 $scope.error.errorPresent = false;
                 $scope.searchedBibs = result.data.payload;
@@ -163,6 +164,7 @@ function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib)
 
     $scope.editBib = function(bib){
         Bib.setBibToBeEdited(bib);
+        console.log(bib);
         $state.go('editModal');
     };
 

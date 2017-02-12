@@ -44,15 +44,10 @@
 
 .inputfile-6 + label {
     border: 1px solid #ccc;
-    // background-color: #C7E7F2;
     padding: 0;
 }
 
-.inputfile-6:focus + label,
-.inputfile-6.has-focus + label,
-.inputfile-6 + label:hover {
-    // border-color: #722040;
-}
+
 
 .inputfile-6 + label span,
 .inputfile-6 + label strong {
