@@ -46,7 +46,8 @@ function Bib($http) {
     var bibFields = {
         metadata: {
             type: 'article',
-            operation: 'add'
+            operation: 'add',
+            id: ""
         },
         payload: {
             author: '',
@@ -82,6 +83,9 @@ function Bib($http) {
             year: ''
         }
     };
+
+    var bibEditMode = angular.copy(bibFields);
+    var selectedTypeEditMode = angular.copy(selectedType);
 
 
     var getAvailableTypes = function() {
@@ -195,6 +199,21 @@ function Bib($http) {
         return $http.post('/api/addbib/', data);
     };
 
+    var setBibToBeEdited = function(bib){
+        bibEditMode.payload = bib;
+        selectedTypeEditMode = availableTypes.filter(function(type){
+            return type.name.toLowerCase() === bib.bibtype;
+        })[0];
+    };
+
+    var getBibFieldsEditMode = function(){
+        return bibEditMode;
+    };
+
+    var getSelectedTypeEditMode = function(){
+        return selectedTypeEditMode;
+    };
+
 
 
     var Bib = {
@@ -202,7 +221,10 @@ function Bib($http) {
         getSelectedType: getSelectedType,
         getSelectedTab: getSelectedTab,
         addBib: addBib,
-        getBibFields: getBibFields
+        getBibFields: getBibFields,
+        setBibToBeEdited: setBibToBeEdited,
+        getBibFieldsEditMode: getBibFieldsEditMode,
+        getSelectedTypeEditMode: getSelectedTypeEditMode
     };
 
 

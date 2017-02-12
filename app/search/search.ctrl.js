@@ -1,12 +1,13 @@
 'use strict';
 
 require('./search');
+require('../bib-create/bib-add/bib');
 angular.module('mlrg.search')
     .controller('SearchController', SearchController);
 
-SearchController.$inject = ['$scope', 'SearchBib', '$uibModal','SweetAlert'];
+SearchController.$inject = ['$scope', 'SearchBib', '$uibModal','SweetAlert', '$state', 'Bib'];
 
-function SearchController($scope, SearchBib, $uibModal, SweetAlert) {
+function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib) {
 
     var MAX_SELECTABLE = 250;
 
@@ -158,6 +159,11 @@ function SearchController($scope, SearchBib, $uibModal, SweetAlert) {
             $scope.searchParams = activeFilters;
             $scope.search(1);
         });
+    };
+
+    $scope.editBib = function(bib){
+        Bib.setBibToBeEdited(bib);
+        $state.go('editModal');
     };
 
 }

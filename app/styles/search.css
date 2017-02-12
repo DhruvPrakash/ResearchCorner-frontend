@@ -5,3 +5,11 @@
 .icon-left input {
 	padding-left: 42.5px;
 }
+
+.edit-icon-for-bib {
+	text-align: right;
+}
+
+.edit-icon-for-bib i {
+	cursor: pointer;
+}

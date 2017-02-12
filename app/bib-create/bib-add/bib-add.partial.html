@@ -6,7 +6,6 @@
 	        </div>
 	    </div>
 	</form>
-
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nopadding space-btw-nav-content">
 			<ul class="nav nav-tabs">
@@ -16,10 +15,9 @@
 			</ul>		
 		</div>
 	</div>
-
 	<br>
 	<form class="form-horizontal" role="form">
-		<div ui-view="article" ng-if="bib.selectedType.name === 'Article'"></div>
+		<div ui-view="article" ng-if="bib.selectedType.name ==='Article'"></div>
 		<div ui-view="inProceedings" ng-if="bib.selectedType.name ==='InProceedings'"></div>
 		<div ui-view="inBook" ng-if="bib.selectedType.name === 'InBook'"></div>
 		<div ui-view="masterThesis" ng-if="bib.selectedType.name === 'MasterThesis'"></div>
@@ -34,8 +32,8 @@
 		<div ui-view="techReport" ng-if="bib.selectedType.name === 'TechReport'"></div>
 		<div ui-view="misc" ng-if="bib.selectedType.name === 'Misc'"></div>
 
-		<div class="form-group col-sm-12 col-md-12 col-lg-12 col-xs-12">
-			<div class="col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 col-xs-offset-1 col-xs-10">
+		<div class="form-group col-sm-12 col-md-12 col-lg-12 col-xs-12" ng-if="mode==='add'">
+			<div class="col-sm-offset-1 col-sm-4 col-md-offset-1 col-md-4 col-lg-offset-1 col-lg-4 col-xs-offset-1 col-xs-4">
 				<button type="submit" class="btn btn-success" ng-click="save()">Save</button>
 			</div>
 		</div>
