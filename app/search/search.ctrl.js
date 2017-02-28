@@ -142,8 +142,7 @@ function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib)
                 $scope.selectedBibs = selectedBibs;
                 $scope.searchedBibs = markupSelectedBibs();
             });
-        }
-    	
+        }    	
     };
 
     $scope.addFilter = function(){
@@ -164,7 +163,6 @@ function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib)
 
     $scope.editBib = function(bib){
         Bib.setBibToBeEdited(bib);
-        console.log(bib);
         $state.go('editModal');
     };
 

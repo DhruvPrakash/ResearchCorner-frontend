@@ -86,7 +86,12 @@ function Bib($http) {
 
     var bibEditMode = angular.copy(bibFields);
     var selectedTypeEditMode = angular.copy(selectedType);
-
+    var editInformationToBePreserved = {
+        $$hashKey: null,
+        id: null,
+        isSelected: null,
+        type: null
+    };
 
     var getAvailableTypes = function() {
         return availableTypes;
@@ -101,7 +106,7 @@ function Bib($http) {
     };
 
     var getBibFields = function() {
-        return bibFields
+        return bibFields;
     };
 
     var makeOtherFieldsEmpty = function(data, fieldList) {
@@ -112,7 +117,7 @@ function Bib($http) {
             });
 
             if (!keyPresent) {
-                obj[key] = ''
+                obj[key] = '';
             }
         });
     };
@@ -194,10 +199,34 @@ function Bib($http) {
         }
     };
 
-    var addBib = function(data) {
+    var addBib = function(data, mode) {
+        if(mode === 'edit') {
+            retainEditInformation(data);
+        }
         cleanFields(data);
-        return $http.post('/api/addbib/', data);
+        var dataToBePosted = angular.copy(data);
+        if(mode === 'edit') {
+            setRetainedEditInformation(data);
+        }
+        
+        return $http.post('/api/addbib/', dataToBePosted);
     };
+
+
+    var retainEditInformation = function(data){
+        editInformationToBePreserved.$$hashKey = data.payload.$$hashKey;
+        editInformationToBePreserved.id = data.payload.id;
+        editInformationToBePreserved.isSelected = data.payload.isSelected;
+        editInformationToBePreserved.type = data.metadata.type;
+    };
+
+    var setRetainedEditInformation = function(data){
+        data.payload.$$hashKey = editInformationToBePreserved.$$hashKey;
+        data.payload.id = editInformationToBePreserved.id;
+        data.payload.isSelected = editInformationToBePreserved.isSelected;
+        data.payload.type = editInformationToBePreserved.type;
+    };
+
 
     var setBibToBeEdited = function(bib){
         bibEditMode.payload = bib;

@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 module.exports = ['$stateProvider', '$urlRouterProvider','$locationProvider', function($stateProvider, $urlRouterProvider){
 	$urlRouterProvider.otherwise('');
@@ -246,7 +246,7 @@ module.exports = ['$stateProvider', '$urlRouterProvider','$locationProvider', fu
 		templateUrl: '/app/search/search.partial.html',
 		controller: 'SearchController'
 	})
-	.state('abcdefg' , {
+	.state('abstractEditModalSkeleton' , {
 		url: '/edit',
 		parent: 'search',
 		modal: true,
@@ -257,7 +257,7 @@ module.exports = ['$stateProvider', '$urlRouterProvider','$locationProvider', fu
 	})
 	.state('abstractEditModal', {
 		url: '',
-		parent: 'abcdefg',
+		parent: 'abstractEditModalSkeleton',
 		views: {
 			'edit-modal@':{
 				templateUrl:'/app/bib-create/bib-add/bib-add.partial.html'

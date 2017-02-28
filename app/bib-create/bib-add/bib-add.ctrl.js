@@ -12,6 +12,7 @@ function BibAddController($scope, Bib, $state) {
 
     $scope.mode = ($state.current.name === 'editModal') ? 'edit' : 'add';
 
+
     $scope.bib = {
         availableTypes: Bib.getAvailableTypes(),
         selectedType: Bib.getSelectedType(),
@@ -44,7 +45,11 @@ function BibAddController($scope, Bib, $state) {
         if($scope.mode === 'edit') {
             $scope.bib.bibFields.metadata.id = $scope.bib.bibFields.payload.id;
         }
-        Bib.addBib($scope.bib.bibFields);
+        
+        Bib.addBib($scope.bib.bibFields, $scope.mode);
+        if($scope.mode === 'edit') {
+            $scope.$dismiss();
+        }
         //have a sweetalert here saying that the bib is being added
     };
 
