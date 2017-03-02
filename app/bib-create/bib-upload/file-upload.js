@@ -24,15 +24,16 @@ angular.module('mlrg.bibcreate')
 			var formData = new FormData();
 			formData.append('file', filedata);
 			if(data !== null){
-				formData.append('data', data);
+				formData.append('metadata', data.metadata);
+				formData.append('payload', data.payload);
 			}
 			if(data !== null) {
-				return $http.post('/api/uploadbibfile/', formData, {
+				return $http.post('/api/addbib/', formData, {
 			 		transformRequest: angular.identity,
 					headers: {'Content-Type': undefined}
 				});
 			} else {
-				return $http.post('/api/uploadbibfile/', formData, {
+				return $http.post('/api/addbib/', formData, {
 			 		transformRequest: angular.identity,
 					headers: {'Content-Type': undefined}
 				});
