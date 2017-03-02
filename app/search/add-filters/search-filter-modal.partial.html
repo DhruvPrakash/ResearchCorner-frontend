@@ -1,0 +1,49 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Advanced Filter <span class="pull-right" style="font-size:20px" ng-click=cancel()><i class="glyphicon glyphicon-remove"></i></span></h3>
+
+</div>
+<div class="modal-body" id="modal-body">
+    
+    <div class="row">
+        <label for="filter-type" class="col-sm-4 col-md-4 col-xs-4 control-label">Type</label>
+        <div class="col-sm-8 col-md-8 col-xs-8">
+            <select name="filter-type-select" id="filter-type" class="form-control" ng-options="option.name for option in availableTypes track by option.id" ng-model="activeFilters.selectedType" ></select>
+        </div>
+    </div>    
+            
+    
+    <div class="row space-above">
+        <label for="filter-author" class="col-sm-4 col-md-4 col-xs-4 control-label">Authors</label>
+        <div class="col-sm-8 col-md-8 col-xs-8">
+            <input type="text" class="form-control" id="filter-author" placeholder="Enter ; separated names of authors" ng-model="activeFilters.author">
+        </div>    
+    </div>
+    
+    <div class="row space-above">
+        <label for="filter-fromyear" class="col-sm-4 col-md-4 col-xs-4 control-label">Enter From Year</label>
+        <div class="col-sm-8 col-md-8 col-xs-8">
+            <input type="text" ng-pattern="numbersOnly" class="form-control" id="filter-fromyear" placeholder="Enter lower bound(inclusive) for year" ng-model="activeFilters.fromYear">
+        </div>
+    </div>
+    
+    <div class="row space-above">
+        <label for="filter-toyear" class="col-sm-4 col-md-4 col-xs-4 control-label">Enter To Year</label>
+        <div class="col-sm-8 col-md-8 col-xs-8">
+            <input type="text" class="form-control" id="filter-toyear" placeholder="Enter upper bound(inclusive) for year " ng-model="activeFilters.toYear">
+        </div>    
+    </div>
+
+    <div class="row space-above">
+        <label for="filter-journal" class="col-sm-4 col-md-4 col-xs-4 control-label">Journal</label>
+        <div class="col-sm-8 col-md-8 col-xs-8">
+            <input type="text" class="form-control" id="filter-journal" placeholder="Enter journal name here " ng-model="activeFilters.journal">
+        </div>    
+    </div>
+
+
+    
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="applyFilter()">Apply</button>
+    <button class="btn btn-danger" type="button" ng-click="clearFilter()">Clear Filter</button>
+</div>

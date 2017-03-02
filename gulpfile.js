@@ -6,6 +6,13 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat');
 	uglify = require('gulp-uglify');
 
+
+var thirdPartyCSSPaths = [
+	'node_modules/bootstrap/dist/css/bootstrap.min.css',
+	'node_modules/sweetalert/dist/sweetalert.css',
+	'node_modules/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css'
+];
+
 gulp.task('default', ['css-concat','browserify','browser-sync','watch']);
 // gulp.task('jshint', function(){
 // 	return gulp.src('source/javascript/**/*.js')
@@ -38,10 +45,19 @@ gulp.task('browser-sync', function(){
 	});
 });
 
+gulp.task('copy-bs-fonts', function(){
+  gulp.src('node_modules/bootstrap/dist/fonts/*.{eot,svg,ttf,woff,woff2}')
+    .pipe(gulp.dest('./dist/fonts/'));
+});
+
 gulp.task('css-concat', function(){
 	gulp.src('app/styles/*.css')
 		.pipe(concat('main.css'))
-		.pipe(gulp.dest('./dist'))
+		.pipe(gulp.dest('./dist/styles'));
+	
+	gulp.src(thirdPartyCSSPaths)
+		.pipe(concat('vendor.css'))
+		.pipe(gulp.dest('./dist/styles'));
 });
 
 gulp.task('browserify', function(){
@@ -52,11 +68,11 @@ gulp.task('browserify', function(){
 		}))
 		.pipe(concat('scripts.js'))
 		.pipe(uglify())
-		.pipe(gulp.dest('./dist'));
+		.pipe(gulp.dest('./dist/scripts'));
 });
 
 gulp.task('uglify', function(){
-	return gulp.src(['./dist/scripts.js'])
+	return gulp.src(['./dist/scripts/scripts.js'])
 		.pipe(uglify());
 })
 

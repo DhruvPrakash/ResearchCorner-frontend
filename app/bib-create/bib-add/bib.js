@@ -3,10 +3,10 @@
 angular.module('mlrg.bibcreate')
     .factory('Bib', Bib);
 
-Bib.$inject = ['$http'];
+Bib.$inject = ['$http','FileUpload'];
 
 
-function Bib($http) {
+function Bib($http, FileUpload) {
 
     var availableTypes = [
         { id: '1', name: 'Article' },
@@ -27,20 +27,20 @@ function Bib($http) {
 
     var selectedType = { id: '1', name: 'Article' };
     var selectedTab = 'required';
-    var articleFields = ['author', 'title', 'journal', 'year', 'doi', 'abstract', 'volume', 'pages', 'note', '__markedentry', 'number', 'month', 'issn', 'crossref', 'keywords', 'file', 'url', 'comment', 'owner', 'timestamp'];
-    var proceedingsFields = ['title', 'year', 'doi', 'abstract', 'editor', 'number', 'address', 'note', 'organization', 'volume', 'series', 'publisher', 'month', 'crossref', 'keywords', 'file', 'url', 'comment', 'owner', 'timestamp'];
-    var inProceedingsFields = ['author', 'title', 'booktitle', 'year', 'doi', 'abstract', 'editor', 'number', 'pages', 'month', 'publisher', 'volume', 'series', 'address', 'organization', 'note', '__markedentry', 'crossref', 'keywords', 'file', 'url', 'comment', 'owner', 'timestamp'];
-    var inBookFields = ['Chapter', 'Pages', 'Title', 'Publisher', 'Year', 'Author', 'Editor', 'DOI', 'Abstract', 'Volume', 'Series', 'Address', 'Month', 'Number', 'Type', 'Edition', 'Note', 'Crossref', 'Keywords', 'File', 'URL', 'Comment', 'Owner', 'TimeStamp'];
-    var inCollectionFields = ['author', 'title', 'booktitle', 'publisher', 'year', 'doi', 'abstract', 'editor', 'number', 'type', 'pages', 'edition', 'note', 'volume', 'series', 'chapter', 'address', 'month', 'crossref', 'keywords', 'file', 'url', 'comment', 'owner', 'timestamp'];
-    var phdThesisFields = ['author', 'title', 'school', 'year', 'doi', 'abstract', 'type', 'month', 'address', 'note', 'crossref', 'keywords', 'file', 'url', 'comment', 'owner', 'timestamp'];
-    var techReportFields = ['author', 'title', 'institution', 'year', 'doi', 'abstract', 'type', 'address', 'note', 'number', 'month', 'crossref', 'keywords', 'file', 'url', 'comment', 'owner', 'timestamp'];
-    var miscFields = ['doi', 'abstract', 'author', 'howpublished', 'year', 'title', 'month', 'note', 'crossref', 'keywords', 'file', 'url', 'comment', 'owner', 'timestamp'];
-    var masterThesisFields = ['author', 'title', 'school', 'year', 'doi','abstract','type', 'month', 'address', 'note','crossref', 'keywords', 'url', 'comment', 'owner', 'timestamp'];
-    var unpublishedFields = ['author', 'title', 'note', 'doi','abstract','year', 'month','crossref', 'keywords', 'url', 'comment', 'owner', 'timestamp'];
-    var manualFields = ['title','doi','abstract','author','organization','month','address','editor','year','note','crossref', 'keywords', 'url', 'comment', 'owner', 'timestamp'];
-    var conferenceFields = ['author','title','booktitle','year','doi','abstract','editor','pages','number','month','publisher','volume','series','address','organization','note','crossref', 'keywords', 'url', 'comment', 'owner', 'timestamp'];
-    var bookFields = ['author','title','editor','year','doi','publisher','abstract','volume','number','series','month','edition','note','address','crossref', 'keywords', 'url', 'comment', 'owner', 'timestamp'];
-    var bookletFields = ['title','doi','abstract','author','month','year','address','howpublished','note','crossref', 'keywords', 'url', 'comment', 'owner', 'timestamp'];
+    var articleFields = ['author', 'title', 'journal', 'year', 'doi', 'abstract', 'volume', 'pages', 'note', '__markedentry', 'number', 'month', 'issn', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp'];
+    var proceedingsFields = ['title', 'year', 'doi', 'abstract', 'editor', 'number', 'address', 'note', 'organization', 'volume', 'series', 'publisher', 'month', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp'];
+    var inProceedingsFields = ['author', 'title', 'booktitle', 'year', 'doi', 'abstract', 'editor', 'number', 'pages', 'month', 'publisher', 'volume', 'series', 'address', 'organization', 'note', '__markedentry', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp'];
+    var inBookFields = ['chapter', 'pages', 'title', 'publisher', 'year', 'author', 'editor', 'doi', 'abstract', 'volume', 'series', 'address', 'month', 'number', 'type', 'edition', 'note', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp'];
+    var inCollectionFields = ['author', 'title', 'booktitle', 'publisher', 'year', 'doi', 'abstract', 'editor', 'number', 'type', 'pages', 'edition', 'note', 'volume', 'series', 'chapter', 'address', 'month', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp'];
+    var phdThesisFields = ['author', 'title', 'school', 'year', 'doi', 'abstract', 'type', 'month', 'address', 'note', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp'];
+    var techReportFields = ['author', 'title', 'institution', 'year', 'doi', 'abstract', 'type', 'address', 'note', 'number', 'month', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp'];
+    var miscFields = ['doi', 'abstract', 'author', 'howpublished', 'year', 'title', 'month', 'note', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp'];
+    var masterThesisFields = ['author', 'title', 'school', 'year', 'doi','abstract','type', 'month', 'address', 'note','crossref', 'keyword', 'url', 'comment', 'owner', 'timestamp'];
+    var unpublishedFields = ['author', 'title', 'note', 'doi','abstract','year', 'month','crossref', 'keyword', 'url', 'comment', 'owner', 'timestamp'];
+    var manualFields = ['title','doi','abstract','author','organization','month','address','editor','year','note','crossref', 'keyword', 'url', 'comment', 'owner', 'timestamp'];
+    var conferenceFields = ['author','title','booktitle','year','doi','abstract','editor','pages','number','month','publisher','volume','series','address','organization','note','crossref', 'keyword', 'url', 'comment', 'owner', 'timestamp'];
+    var bookFields = ['author','title','editor','year','doi','publisher','abstract','volume','number','series','month','edition','note','address','crossref', 'keyword', 'url', 'comment', 'owner', 'timestamp'];
+    var bookletFields = ['title','doi','abstract','author','month','year','address','howpublished','note','crossref', 'keyword', 'url', 'comment', 'owner', 'timestamp'];
 
     var requiredFields = {
         'Article': ['author','journal','title','year','doi','abstract'],
@@ -63,7 +63,8 @@ function Bib($http) {
     var bibFields = {
         metadata: {
             type: 'article',
-            operation: 'add'
+            operation: 'add',
+            id: ""
         },
         payload: {
             author: '',
@@ -81,7 +82,7 @@ function Bib($http) {
             howpublished: '',
             institution: '',
             journal: '',
-            keywords: '',
+            keyword: '',
             month: '',
             note: '',
             number: '',
@@ -100,6 +101,14 @@ function Bib($http) {
         }
     };
 
+    var bibEditMode = angular.copy(bibFields);
+    var selectedTypeEditMode = angular.copy(selectedType);
+    var editInformationToBePreserved = {
+        $$hashKey: null,
+        id: null,
+        isSelected: null,
+        type: null
+    };
 
     var getAvailableTypes = function() {
         return availableTypes;
@@ -125,7 +134,7 @@ function Bib($http) {
             });
 
             if (!keyPresent) {
-                obj[key] = ''
+                obj[key] = '';
             }
         });
     };
@@ -207,20 +216,54 @@ function Bib($http) {
         }
     };
 
-    var addBib = function(data) {
+    var addBib = function(data, mode) {
+        if(mode === 'edit') {
+            retainEditInformation(data);
+        }
         cleanFields(data);
-        return $http.post('/api/addbib/', data);
+        var dataToBePosted = angular.copy(data);
+        if(mode === 'edit') {
+            setRetainedEditInformation(data);
+        }
+        
+        return $http.post('/api/addbib/', dataToBePosted);
     };
 
-    var uploadBibFile = function(data){
-            var formData = new FormData();
-            formData.append('file', data);
-                        
-            return $http.post('/api/uploadbibfile/', formData, {
-                transformRequest: angular.identity,
-                headers: {'Content-Type': undefined}
-            });
-        };
+
+    var retainEditInformation = function(data){
+        editInformationToBePreserved.$$hashKey = data.payload.$$hashKey;
+        editInformationToBePreserved.id = data.payload.id;
+        editInformationToBePreserved.isSelected = data.payload.isSelected;
+        editInformationToBePreserved.type = data.metadata.type;
+    };
+
+    var setRetainedEditInformation = function(data){
+        data.payload.$$hashKey = editInformationToBePreserved.$$hashKey;
+        data.payload.id = editInformationToBePreserved.id;
+        data.payload.isSelected = editInformationToBePreserved.isSelected;
+        data.payload.type = editInformationToBePreserved.type;
+    };
+
+
+    var setBibToBeEdited = function(bib){
+        bibEditMode.payload = bib;
+        selectedTypeEditMode = availableTypes.filter(function(type){
+            return type.name.toLowerCase() === bib.type;
+        })[0];
+    };
+
+    var getBibFieldsEditMode = function(){
+        return bibEditMode;
+    };
+
+    var getSelectedTypeEditMode = function(){
+        return selectedTypeEditMode;
+    };
+
+    var uploadPDFFile = function(fileData, data){
+        cleanFields(data);
+        FileUpload.uploadPDFFile(fileData, data);
+    };
 
         
     var checkIfRequiredPresent = function(name,payload){
@@ -233,12 +276,6 @@ function Bib($http) {
         return flag;        
     }
 
-    /*var addBibWithPdf = function(data) {
-        cleanFields(data);
-        return FileUpload.uploadPDFWithBib(file,data);
-    }
-*/
-
 
     var Bib = {
         getAvailableTypes: getAvailableTypes,
@@ -247,7 +284,11 @@ function Bib($http) {
         addBib: addBib,
         getBibFields: getBibFields,
         checkIfRequiredPresent: checkIfRequiredPresent,
-        uploadBibFile: uploadBibFile,
+        uploadPDFFile: uploadPDFFile,
+        setBibToBeEdited: setBibToBeEdited,
+        getBibFieldsEditMode: getBibFieldsEditMode,
+        getSelectedTypeEditMode: getSelectedTypeEditMode
+
     };
 
 

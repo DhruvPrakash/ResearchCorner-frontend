@@ -1,3 +1,3 @@
-<div ui-view="manual-required" ng-show="bib.selectedTab === 'required'"></div>
-<div ui-view="manual-optional" ng-show="bib.selectedTab === 'optional'"></div>
-<div ui-view="manual-general" ng-show="bib.selectedTab === 'general'"></div>
+<div ng-class="'sub-view'" ui-view="manual-required" ng-if="bib.selectedTab === 'required'"></div>
+<div ng-class="'sub-view'" ui-view="manual-optional" ng-if="bib.selectedTab === 'optional'"></div>
+<div ng-class="'sub-view'" ui-view="manual-general" ng-if="bib.selectedTab === 'general'"></div>
