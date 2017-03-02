@@ -11,11 +11,24 @@ angular.module('mlrg.bibcreate')
 		
 		//Todo: Validate the thing to ensure only bibs are uploaded
 		//How to show success and errors? Look for a component to do that
+
+		
+		
 		$scope.upload = function(){
-			//console.log($scope.files[0].name.slice(-4) === '.bib');
-			FileUpload.uploadBibFile($scope.files[0]).then(function(){
-				SweetAlert.swal("Bib File Has Been Uploaded");
-			});
-		};
+			
+
+			//FileUpload.uploadBibFile($scope.files[0]).then(function(){
+			
+			if($scope.files[0].name.slice(-3) === 'bib'){
+				SweetAlert.swal('file uploaded');
+			}			
+			else{
+				SweetAlert.swal('Please upload a bib file','','warning');
+			}
+			
+			
+			
+			
+		}
 
 	}

@@ -1,3 +1,11 @@
 .space-btw-nav-content{
 	margin-top:5%;
 }
+
+.form-horizontal .form-group.reset-margin-left {
+	margin-left:0;
+}
+
+.form-horizontal .form-group .bring-btn-up {
+	margin-bottom: 35px;
+}

@@ -42,6 +42,23 @@ function Bib($http) {
     var bookFields = ['author','title','editor','year','doi','publisher','abstract','volume','number','series','month','edition','note','address','crossref', 'keywords', 'url', 'comment', 'owner', 'timestamp'];
     var bookletFields = ['title','doi','abstract','author','month','year','address','howpublished','note','crossref', 'keywords', 'url', 'comment', 'owner', 'timestamp'];
 
+    var requiredFields = {
+        'Article': ['author','journal','title','year','doi','abstract'],
+        'InProceedings': ['author','booktitle','title','year','doi','abstract'],
+        'InBook': ['chapter','pages','title','publisher','year','author','editor','doi','abstract'],
+        'MasterThesis': ['author','school','title','year','doi','abstract'],
+        'Unpublished': ['author','title','note','doi','abstract'],
+        'Manual': ['title','doi','abstract'],
+        'Book': ['author','publisher','title','year','doi','abstract','editor'],
+        'Booklet': ['title','doi','abstract'],
+        'Conference': ['author','booktitle','title','year','doi','abstract'],
+        'Proceedings': ['title','year','doi','abstract'],
+        'InCollection': ['author','booktitle','publisher','title','year','doi','abstract'],
+        'PhdThesis': ['author','school','title','year','doi','abstract'],
+        'TechReport': ['author','institution','title','year','doi','abstract'],
+        'Misc': ['doi','abstract']
+    };
+
 
     var bibFields = {
         metadata: {
@@ -97,7 +114,7 @@ function Bib($http) {
     };
 
     var getBibFields = function() {
-        return bibFields
+        return bibFields;
     };
 
     var makeOtherFieldsEmpty = function(data, fieldList) {
@@ -195,6 +212,32 @@ function Bib($http) {
         return $http.post('/api/addbib/', data);
     };
 
+    var uploadBibFile = function(data){
+            var formData = new FormData();
+            formData.append('file', data);
+                        
+            return $http.post('/api/uploadbibfile/', formData, {
+                transformRequest: angular.identity,
+                headers: {'Content-Type': undefined}
+            });
+        };
+
+        
+    var checkIfRequiredPresent = function(name,payload){
+        var flag = true;
+        angular.forEach(requiredFields[name],function(value,key){
+            if(payload[value]===""){
+                flag = false;
+            } 
+        }); 
+        return flag;        
+    }
+
+    /*var addBibWithPdf = function(data) {
+        cleanFields(data);
+        return FileUpload.uploadPDFWithBib(file,data);
+    }
+*/
 
 
     var Bib = {
@@ -202,7 +245,9 @@ function Bib($http) {
         getSelectedType: getSelectedType,
         getSelectedTab: getSelectedTab,
         addBib: addBib,
-        getBibFields: getBibFields
+        getBibFields: getBibFields,
+        checkIfRequiredPresent: checkIfRequiredPresent,
+        uploadBibFile: uploadBibFile,
     };
 
 
