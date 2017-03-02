@@ -6,6 +6,15 @@ select[name="bib-type-select"] {
 	margin-top:5%;
 }
 
+
+.form-horizontal .form-group.reset-margin-left {
+	margin-left:0;
+}
+
+.form-horizontal .form-group .bring-btn-up {
+	margin-bottom: 35px;
+}
+
 [ui-view].ng-enter.add-upload-bib {
 	transition:all 0.5s ease-in-out;
 	opacity: 0;
@@ -22,6 +31,7 @@ select[name="bib-type-select"] {
 
 .sub-view.ng-enter-active {
  	opacity: 1;
+
 }
 .side-menu {
 	margin-top: 50px;
