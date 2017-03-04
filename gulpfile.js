@@ -5,6 +5,7 @@ var gulp = require('gulp'),
 	browserify = require('gulp-browserify'),
 	concat = require('gulp-concat');
 	uglify = require('gulp-uglify');
+	eslint = require('gulp-eslint');
 
 
 var thirdPartyCSSPaths = [
@@ -25,6 +26,7 @@ gulp.task('default', ['css-concat','browserify','browser-sync','watch']);
 // 		.pipe(less())
 // 		.pipe(gulp.dest('public/assets/stylesheets'));
 // });
+
 
 gulp.task('watch', function(){
 	gulp.watch('app/**/*.js', ['browserify']);
@@ -74,6 +76,13 @@ gulp.task('browserify', function(){
 gulp.task('uglify', function(){
 	return gulp.src(['./dist/scripts/scripts.js'])
 		.pipe(uglify());
+});
+
+gulp.task('lint', function(){
+	return gulp.src(['app/**/*.js','!node_modules/**'])
+	.pipe(eslint())
+	.pipe(eslint.format())
+	.pipe(eslint.failAfterError());
 })
 
 
