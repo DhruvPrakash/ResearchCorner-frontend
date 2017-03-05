@@ -7,62 +7,62 @@
 //TODO: Remove the random success failure!
 //require('./search-mock');
 angular.module('mlrg.search')
-	.factory('SearchBib', SearchBib);
+    .factory('SearchBib', SearchBib);
 
-	SearchBib.$inject = ['$http'/*,'$q', 'SearchMockSuccess1'*/];
+SearchBib.$inject = ['$http' /*,'$q', 'SearchMockSuccess1'*/ ];
 
-	function SearchBib($http/*, $q, SearchMockSuccess1*/){
-		
-
-		var getActiveFilters = function(searchParams) {
-			var activeFilters = [];
-			if(searchParams.author !== '') {
-				activeFilters.push('author');
-			}
-			if(searchParams.year !== '') {
-				activeFilters.push('year');
-			}
-			if(searchParams.selectedType.id !== '0') {
-				activeFilters.push('type');
-			}
-			if(searchParams.journal !== '') {
-				activeFilters.push('journal');
-			}
-			if(searchParams.keywords !== '') {
-				activeFilters.push('keywords');
-			}
-			if(searchParams.searchText !== '') {
-				activeFilters.push('searchQuery');
-			}
-			return activeFilters;
-		};
+function SearchBib($http /*, $q, SearchMockSuccess1*/ ) {
 
 
-		var search = function(searchParams){
-			
-			var activeFilters = getActiveFilters(searchParams);
-			return $http.post('/api/search/',{
-				"metadata" : {
-					"page" : searchParams.page,
-					"activeFilters": activeFilters
-				},
-				"payload" : {
-					'searchQuery': searchParams.searchText,
-					'author': searchParams.author,
-					'year': searchParams.year,
-					'journal': searchParams.journal,
-					'type':searchParams.selectedType.name 
-					}
-				});
+    var getActiveFilters = function(searchParams) {
+        var activeFilters = [];
+        if (searchParams.author !== '') {
+            activeFilters.push('author');
+        }
+        if (searchParams.year !== '') {
+            activeFilters.push('year');
+        }
+        if (searchParams.selectedType.id !== '0') {
+            activeFilters.push('type');
+        }
+        if (searchParams.journal !== '') {
+            activeFilters.push('journal');
+        }
+        if (searchParams.keywords !== '') {
+            activeFilters.push('keywords');
+        }
+        if (searchParams.searchText !== '') {
+            activeFilters.push('searchQuery');
+        }
+        return activeFilters;
+    };
 
-			
-			// return $q.when(SearchMockSuccess1);
-		};
+
+    var search = function(searchParams) {
+
+        var activeFilters = getActiveFilters(searchParams);
+        return $http.post('/api/search/', {
+            'metadata': {
+                'page': searchParams.page,
+                'activeFilters': activeFilters
+            },
+            'payload': {
+                'searchQuery': searchParams.searchText,
+                'author': searchParams.author,
+                'year': searchParams.year,
+                'journal': searchParams.journal,
+                'type': searchParams.selectedType.name
+            }
+        });
 
 
-		var searchObj = {
-			search: search
-		};
+        // return $q.when(SearchMockSuccess1);
+    };
 
-		return searchObj;
-	}
+
+    var searchObj = {
+        search: search
+    };
+
+    return searchObj;
+}

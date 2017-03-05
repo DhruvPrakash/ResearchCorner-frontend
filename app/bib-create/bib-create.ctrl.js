@@ -2,22 +2,22 @@
 
 
 angular.module('mlrg.bibcreate')
-	.controller('BibCreateController',BibCreateController);
+    .controller('BibCreateController', BibCreateController);
 
-	BibCreateController.$inject = ['$scope', '$state'];
-
-
-	function BibCreateController($scope, $state){
-		
-
-		$scope.mainTab = {
-			selectedTab: 'add'
-		};
+BibCreateController.$inject = ['$scope'];
 
 
-		$scope.changeMainTab = function(selectedTab){
-			$scope.mainTab.selectedTab = selectedTab;
-		};
+function BibCreateController($scope) {
 
 
-	}
+    $scope.mainTab = {
+        selectedTab: 'add'
+    };
+
+
+    $scope.changeMainTab = function(selectedTab) {
+        $scope.mainTab.selectedTab = selectedTab;
+    };
+
+
+}

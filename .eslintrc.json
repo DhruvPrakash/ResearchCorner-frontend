@@ -3,10 +3,12 @@
 		"browser": true,
 		"node": true
 	},
-
+	"globals": {
+		"angular": 1
+	},
 	"extends": "eslint:recommended",
 	"rules": {
-		"indent": ["error",4],
+		"indent": ["error",4, {"SwitchCase": 1}],
 		"linebreak-style": [2,"unix"],
 		"quotes": [2,"single"],
 		"semi": [2,"always"]

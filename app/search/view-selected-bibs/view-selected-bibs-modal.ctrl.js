@@ -1,48 +1,46 @@
 'use strict';
 
 angular.module('mlrg.search')
-	.controller('ViewSelectedBibsModalInstanceController', ViewSelectedBibsModalInstanceController);
+    .controller('ViewSelectedBibsModalInstanceController', ViewSelectedBibsModalInstanceController);
 
-	ViewSelectedBibsModalInstanceController.$inject = ['$scope', '$uibModalInstance','selectedBibs', 'SweetAlert', '$q'];
+ViewSelectedBibsModalInstanceController.$inject = ['$scope', '$uibModalInstance', 'selectedBibs', 'SweetAlert', '$q'];
 
-	function ViewSelectedBibsModalInstanceController($scope, $uibModalInstance, selectedBibs, SweetAlert, $q){
-		$scope.selectedBibs = selectedBibs;
-		
-		$scope.pagination = {
-		    currentPage: 1,
-		    totalPages: Math.ceil($scope.selectedBibs.length / 10),
-		    totalItems: $scope.selectedBibs.length,
-		    itemsPerPage: 5
-		};
+function ViewSelectedBibsModalInstanceController($scope, $uibModalInstance, selectedBibs, SweetAlert, $q) {
+    $scope.selectedBibs = selectedBibs;
 
-		$scope.ok = function(){
-			$uibModalInstance.dismiss();
-		};
+    $scope.pagination = {
+        currentPage: 1,
+        totalPages: Math.ceil($scope.selectedBibs.length / 10),
+        totalItems: $scope.selectedBibs.length,
+        itemsPerPage: 5
+    };
 
-		$scope.unselectAll = function(){
-			var deferred = $q.defer();
-			
+    $scope.ok = function() {
+        $uibModalInstance.dismiss();
+    };
 
-			SweetAlert.swal({
-			   title: "Are you sure?",
-			   text: "All your bibs will be unselected",
-			   type: "warning",
-			   showCancelButton: true,
-			   confirmButtonColor: "#DD6B55",
-			   confirmButtonText: "I am sure",
-			   closeOnConfirm: false
-			}, 
-			function(){ 
-			   SweetAlert.swal("Your bibs have been unselected");
-			   
-			   deferred.resolve();
-			   
-			});
+    $scope.unselectAll = function() {
+        var deferred = $q.defer();
 
-			deferred.promise.then(function(){
-				$scope.selectedBibs = [];
-				$uibModalInstance.close($scope.selectedBibs);
-			});
 
-		};
-	}
+        SweetAlert.swal({
+            title: 'Are you sure?',
+            text: 'All your bibs will be unselected',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'I am sure',
+            closeOnConfirm: false
+        },
+        function() {
+            SweetAlert.swal('Your bibs have been unselected');
+            deferred.resolve();
+        });
+
+        deferred.promise.then(function() {
+            $scope.selectedBibs = [];
+            $uibModalInstance.close($scope.selectedBibs);
+        });
+
+    };
+}

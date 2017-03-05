@@ -4,10 +4,10 @@ require('./bib');
 angular.module('mlrg.bibcreate')
     .controller('BibAddController', BibAddController);
 
-BibAddController.$inject = ['$scope', 'Bib', '$state', 'SweetAlert', 'FileUpload'];
+BibAddController.$inject = ['$scope', 'Bib', '$state', 'SweetAlert'];
 
 
-function BibAddController($scope, Bib, $state, SweetAlert, FileUpload) {
+function BibAddController($scope, Bib, $state, SweetAlert) {
 
     $scope.mode = ($state.current.name === 'editModal') ? 'edit' : 'add';
     $scope.files = null;

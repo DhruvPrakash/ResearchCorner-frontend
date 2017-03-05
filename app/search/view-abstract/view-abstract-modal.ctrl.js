@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('mlrg.search')
-	.controller('ViewAbstractModalInstanceController', ViewAbstractModalInstanceController);
+    .controller('ViewAbstractModalInstanceController', ViewAbstractModalInstanceController);
 
-	ViewAbstractModalInstanceController.$inject = ['$scope', 'bibDetails', '$uibModalInstance'];
+ViewAbstractModalInstanceController.$inject = ['$scope', 'bibDetails', '$uibModalInstance'];
 
-	function ViewAbstractModalInstanceController($scope, bibDetails, $uibModalInstance){
-		$scope.bibDetails = bibDetails;
+function ViewAbstractModalInstanceController($scope, bibDetails, $uibModalInstance) {
+    $scope.bibDetails = bibDetails;
 
-		$scope.ok = function(){
-			$uibModalInstance.close();
-		};
-	}
+    $scope.ok = function() {
+        $uibModalInstance.close();
+    };
+}

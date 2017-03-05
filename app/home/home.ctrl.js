@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('mlrg.home')
-	.controller('HomeController',HomeController);
+    .controller('HomeController', HomeController);
 
-	HomeController.$inject = ['$scope'];
+HomeController.$inject = [];
 
 
-	function HomeController($scope){
+function HomeController() {
 
-	}
+}
