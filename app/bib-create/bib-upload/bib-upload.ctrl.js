@@ -20,7 +20,8 @@ function BibUploadController($scope, FileUpload, SweetAlert) {
         //FileUpload.uploadBibFile($scope.files[0]).then(function(){
 
         if ($scope.files[0].name.slice(-3) === 'bib') {
-            SweetAlert.swal('file uploaded');
+            SweetAlert.swal('File is in the upload queue');
+            FileUpload.uploadBibFile($scope.files[0]);
         } else {
             SweetAlert.swal('Please upload a bib file', '', 'warning');
         }
