@@ -16,3 +16,10 @@
   opacity: 1;
   transform:scale3d(1, 1, 1);
 }
+
+.badge-info {
+  background-color: #3a87ad;
+}
+.badge-info:hover {
+  background-color: #2d6987;
+}

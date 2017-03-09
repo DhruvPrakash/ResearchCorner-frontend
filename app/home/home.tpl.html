@@ -9,8 +9,15 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <ul class="nav navbar-nav navbar-right">
+                <li uib-dropdown on-toggle="">
+                    <a uib-dropdown-toggle class="dropdown-toggle">Notification <span class="badge badge-info">2</span><b class="caret"></b></a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li><a>Meaningful notification 1</a></li>
+                        <li><a>Meaningful notification 2</a></li>
+                    </ul>
+                </li>
                 <li uib-dropdown on-toggle="toggled(open)">
-                    <a uib-dropdown-toggle class="dropdown-toggle">Donald Trump<b class="caret"></b></a>
+                    <a uib-dropdown-toggle class="dropdown-toggle">Administrator<b class="caret"></b></a>
                     <ul class="dropdown-menu" uib-dropdown-menu>
                         <li><a>Settings</a></li>
                         <li><a href="/accounts/logout">Logout</a></li>
