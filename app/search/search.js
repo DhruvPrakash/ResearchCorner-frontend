@@ -9,7 +9,7 @@
 angular.module('mlrg.search')
     .factory('SearchBib', SearchBib);
 
-SearchBib.$inject = ['$http' /*,'$q', 'SearchMockSuccess1'*/ ];
+SearchBib.$inject = ['$http' /*,'$q', 'SearchMockSuccess1' */];
 
 function SearchBib($http /*, $q, SearchMockSuccess1*/ ) {
 
@@ -56,7 +56,7 @@ function SearchBib($http /*, $q, SearchMockSuccess1*/ ) {
         });
 
 
-        // return $q.when(SearchMockSuccess1);
+        //return $q.when(SearchMockSuccess1);
     };
 
 

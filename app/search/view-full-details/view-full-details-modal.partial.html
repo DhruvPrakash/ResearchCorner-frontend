@@ -1,0 +1,39 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Bib Details</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <ul>
+    	<li ng-if="bibDetails.title !== '' ">Title : {{bibDetails.title}}</li>
+    	<li ng-if="bibDetails.abstract !== ''">Abstract : {{bibDetails.abstract}}</li>
+    	<li ng-if="bibDetails.type !== ''">Type : {{bibDetails.type}}</li>
+    	<li ng-if="bibDetails.author !== ''">Author : {{bibDetails.author}}</li>
+    	<li ng-if="bibDetails.journal !== ''">Journal : {{bibDetails.journal}}</li>
+    	<li ng-if="bibDetails.booktitle !== ''">Book Title : {{bibDetails.booktitle}}</li>
+    	<li ng-if="bibDetails.address !== ''">Address : {{bibDetails.address}}</li>
+    	<li ng-if="bibDetails.doi !== ''">DOI : {{bibDetails.doi}}</li>
+    	<li ng-if="bibDetails.edition !== ''">Edition : {{bibDetails.edition}}</li>
+    	<li ng-if="bibDetails.editor !== ''">Editor : {{bibDetails.editor}}</li>
+    	<li ng-if="bibDetails.chapter !== ''">Chapter : {{bibDetails.chapter}}</li>
+    	<li ng-if="bibDetails.pages !== ''">Pages : {{bibDetails.pages}}</li>
+    	<li ng-if="bibDetails.publisher !== ''">Publisher : {{bibDetails.publisher}}</li>
+    	<li ng-if="bibDetails.owner !== ''">Owner : {{bibDetails.owner}}</li>
+    	<li ng-if="bibDetails.institution !== ''">Institution : {{bibDetails.institution}}</li>
+    	<li ng-if="bibDetails.organization !== ''">Organization : {{bibDetails.organization}}</li>
+    	<li ng-if="bibDetails.school !== ''">School : {{bibDetails.school}}</li>
+    	<li ng-if="bibDetails.series !== ''">Series : {{bibDetails.series}}</li>
+    	<li ng-if="bibDetails.url !== ''">URL : {{bibDetails.url}}</li>
+    	<li ng-if="bibDetails.volume !== ''">Volume : {{bibDetails.volume}}</li>
+    	<li ng-if="bibDetails.number !== ''">Number : {{bibDetails.number}}</li>
+    	<li ng-if="bibDetails.month !== ''">Month : {{bibDetails.month}}</li>
+    	<li ng-if="bibDetails.year !== ''">Year : {{bibDetails.year}}</li>
+    	<li ng-if="bibDetails.timestamp !== ''">Time stamp : {{bibDetails.timestamp}}</li>
+    	<li ng-if="bibDetails.__markedentry !== ''">Marked Entry : {{bibDetails.__markedentry}}</li>
+    	<li ng-if="bibDetails.address !== ''">Address : {{bibDetails.address}}</li>
+    	<li ng-if="bibDetails.crossref !== ''">Cross Ref : {{bibDetails.crossref}}</li>
+    	<li ng-if="bibDetails.howpublished !== ''">How published : {{bibDetails.howpublished}}</li>
+    	<li ng-if="bibDetails.comment !== ''">Comment : {{bibDetails.comment}}</li>
+    </ul>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+</div>

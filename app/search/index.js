@@ -6,3 +6,4 @@ require('./view-abstract/view-abstract-modal.ctrl');
 require('./view-selected-bibs/view-selected-bibs-modal.ctrl');
 require('./add-filters/search-filter-modal.ctrl');
 require('../bib-create/bib-add/bib-add.ctrl');
+require('./view-full-details/view-full-details-modal.ctrl');

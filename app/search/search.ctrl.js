@@ -123,6 +123,50 @@ function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib)
         });
     };
 
+    $scope.viewFullDetails = function(bibItem) {
+        $uibModal.open({
+            templateUrl: '/app/search/view-full-details/view-full-details-modal.partial.html',
+            controller: 'ViewFullDetailsModalInstanceController',
+            size: 'md',
+            resolve: {
+                bibDetails: function() {
+                    return {
+                        author: bibItem.author,
+                        abstract: bibItem.abstract,
+                        __markedentry: (bibItem.markedEntry !== undefined) ? bibItem.markedEntry : bibItem.__markedentry,
+                        address: bibItem.address,
+                        booktitle: (bibItem.bookTitle !== undefined) ? bibItem.bookTitle : bibItem.booktitle,
+                        chapter: bibItem.chapter,
+                        comment: bibItem.comment,
+                        crossref: (bibItem.crossRef !== undefined) ? bibItem.crossRef : bibItem.crossref,
+                        doi: bibItem.doi,
+                        edition: bibItem.edition,
+                        editor: bibItem.editor,
+                        howpublished: (bibItem.howPublished !== undefined) ? bibItem.howPublished : bibItem.howpublished,
+                        institution: bibItem.institution,
+                        journal: bibItem.journal,
+                        keywords: bibItem.keywords,
+                        month: bibItem.month,
+                        note: bibItem.note,
+                        number: bibItem.number,
+                        organization: bibItem.organization,
+                        owner: bibItem.owner,
+                        pages: bibItem.pages,
+                        publisher: bibItem.publisher,
+                        school: bibItem.school,
+                        series: bibItem.series,
+                        timestamp: (bibItem.timeStamp !== undefined) ? bibItem.timeStamp : bibItem.timestamp,
+                        title: bibItem.title,
+                        type: bibItem.type,
+                        url: bibItem.url,
+                        volume: bibItem.volume,
+                        year: bibItem.year,
+                    };
+                }
+            }
+        });
+    };
+
     $scope.viewSelectedBibs = function() {
         if ($scope.selectedBibs.length === 0) {
             SweetAlert.swal('', 'No bibs have been selected!', 'warning');
