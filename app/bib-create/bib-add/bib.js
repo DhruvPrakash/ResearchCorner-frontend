@@ -27,20 +27,20 @@ function Bib($http, FileUpload) {
 
     var selectedType = { id: '1', name: 'Article' };
     var selectedTab = 'required';
-    var articleFields = ['author', 'title', 'journal', 'year', 'doi', 'abstract', 'volume', 'pages', 'note', '__markedentry', 'number', 'month', 'issn', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp'];
-    var proceedingsFields = ['title', 'year', 'doi', 'abstract', 'editor', 'number', 'address', 'note', 'organization', 'volume', 'series', 'publisher', 'month', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
-    var inProceedingsFields = ['author', 'title', 'booktitle', 'year', 'doi', 'abstract', 'editor', 'number', 'pages', 'month', 'publisher', 'volume', 'series', 'address', 'organization', 'note', '__markedentry', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp'];
-    var inBookFields = ['chapter', 'pages', 'title', 'publisher', 'year', 'author', 'editor', 'doi', 'abstract', 'volume', 'series', 'address', 'month', 'number', 'type', 'edition', 'note', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
-    var inCollectionFields = ['author', 'title', 'booktitle', 'publisher', 'year', 'doi', 'abstract', 'editor', 'number', 'type', 'pages', 'edition', 'note', 'volume', 'series', 'chapter', 'address', 'month', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
-    var phdThesisFields = ['author', 'title', 'school', 'year', 'doi', 'abstract', 'type', 'month', 'address', 'note', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
-    var techReportFields = ['author', 'title', 'institution', 'year', 'doi', 'abstract', 'type', 'address', 'note', 'number', 'month', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
-    var miscFields = ['doi', 'abstract', 'author', 'howpublished', 'year', 'title', 'month', 'note', 'crossref', 'keyword', 'file', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
-    var masterThesisFields = ['author', 'title', 'school', 'year', 'doi', 'abstract', 'type', 'month', 'address', 'note', 'crossref', 'keyword', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
-    var unpublishedFields = ['author', 'title', 'note', 'doi', 'abstract', 'year', 'month', 'crossref', 'keyword', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
-    var manualFields = ['title', 'doi', 'abstract', 'author', 'organization', 'month', 'address', 'editor', 'year', 'note', 'crossref', 'keyword', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
-    var conferenceFields = ['author', 'title', 'booktitle', 'year', 'doi', 'abstract', 'editor', 'pages', 'number', 'month', 'publisher', 'volume', 'series', 'address', 'organization', 'note', 'crossref', 'keyword', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
-    var bookFields = ['author', 'title', 'editor', 'year', 'doi', 'publisher', 'abstract', 'volume', 'number', 'series', 'month', 'edition', 'note', 'address', 'crossref', 'keyword', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
-    var bookletFields = ['title', 'doi', 'abstract', 'author', 'month', 'year', 'address', 'howpublished', 'note', 'crossref', 'keyword', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
+    var articleFields = ['author', 'title', 'journal', 'year', 'doi', 'abstract', 'volume', 'pages', 'note', '__markedentry', 'number', 'month', 'issn', 'crossref', 'keywords', 'file', 'url', 'comment', 'owner', 'timestamp'];
+    var proceedingsFields = ['title', 'year', 'doi', 'abstract', 'editor', 'number', 'address', 'note', 'organization', 'volume', 'series', 'publisher', 'month', 'crossref', 'keywords', 'file', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
+    var inProceedingsFields = ['author', 'title', 'booktitle', 'year', 'doi', 'abstract', 'editor', 'number', 'pages', 'month', 'publisher', 'volume', 'series', 'address', 'organization', 'note', '__markedentry', 'crossref', 'keywords', 'file', 'url', 'comment', 'owner', 'timestamp'];
+    var inBookFields = ['chapter', 'pages', 'title', 'publisher', 'year', 'author', 'editor', 'doi', 'abstract', 'volume', 'series', 'address', 'month', 'number', 'type', 'edition', 'note', 'crossref', 'keywords', 'file', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
+    var inCollectionFields = ['author', 'title', 'booktitle', 'publisher', 'year', 'doi', 'abstract', 'editor', 'number', 'type', 'pages', 'edition', 'note', 'volume', 'series', 'chapter', 'address', 'month', 'crossref', 'keywords', 'file', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
+    var phdThesisFields = ['author', 'title', 'school', 'year', 'doi', 'abstract', 'type', 'month', 'address', 'note', 'crossref', 'keywords', 'file', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
+    var techReportFields = ['author', 'title', 'institution', 'year', 'doi', 'abstract', 'type', 'address', 'note', 'number', 'month', 'crossref', 'keywords', 'file', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
+    var miscFields = ['doi', 'abstract', 'author', 'howpublished', 'year', 'title', 'month', 'note', 'crossref', 'keywords', 'file', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
+    var masterThesisFields = ['author', 'title', 'school', 'year', 'doi', 'abstract', 'type', 'month', 'address', 'note', 'crossref', 'keywords', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
+    var unpublishedFields = ['author', 'title', 'note', 'doi', 'abstract', 'year', 'month', 'crossref', 'keywords', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
+    var manualFields = ['title', 'doi', 'abstract', 'author', 'organization', 'month', 'address', 'editor', 'year', 'note', 'crossref', 'keywords', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
+    var conferenceFields = ['author', 'title', 'booktitle', 'year', 'doi', 'abstract', 'editor', 'pages', 'number', 'month', 'publisher', 'volume', 'series', 'address', 'organization', 'note', 'crossref', 'keywords', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
+    var bookFields = ['author', 'title', 'editor', 'year', 'doi', 'publisher', 'abstract', 'volume', 'number', 'series', 'month', 'edition', 'note', 'address', 'crossref', 'keywords', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
+    var bookletFields = ['title', 'doi', 'abstract', 'author', 'month', 'year', 'address', 'howpublished', 'note', 'crossref', 'keywords', 'url', 'comment', 'owner', 'timestamp','__markedentry'];
 
     var requiredFields = {
         'Article': ['author', 'journal', 'title', 'year', 'doi', 'abstract'],
