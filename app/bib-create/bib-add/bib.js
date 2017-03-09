@@ -244,7 +244,22 @@ function Bib($http, FileUpload) {
     };
 
 
+    var renameFields  = function(bib) {
+        bib.timestamp = bib.timeStamp;
+        bib.booktitle = bib.bookTitle;
+        bib.howpublished = bib.howPublished;
+        bib.crossref = bib.crossRef;
+        bib.__markedentry = bib.markedEntry;
+        delete bib.timeStamp;
+        delete bib.bookTitle;
+        delete bib.howPublished;
+        delete bib.crossRef;
+        delete bib.markedEntry;
+    };
+
     var setBibToBeEdited = function(bib) {
+        /*quirky renaming because api returns erratic stuff*/
+        renameFields(bib);
         bibEditMode.payload = bib;
         selectedTypeEditMode = availableTypes.filter(function(type) {
             return type.name.toLowerCase() === bib.type;
