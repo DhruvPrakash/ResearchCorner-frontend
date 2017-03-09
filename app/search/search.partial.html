@@ -33,7 +33,7 @@
 	        		<br>
 	        		<span class="btn btn-success" ng-click="viewAbstract(bib)">View Abstract</span>
 				    <span class="btn btn-info" ng-click="viewFullDetails(bib)">View Full Details</span>
-	        		<span class="btn btn-primary">PDF</span>
+	        		<a class="btn btn-primary" ng-if="bib.doi !== ''" ng-href="http://dx.doi.org/{{bib.doi}}" target="_blank">Open paper</a>
 	        		<span class="btn btn-custom-alt">Biblist(s) this bib is present in</span>
 	        	</div>
 	        	<div class="col-md-1 edit-icon-for-bib">
