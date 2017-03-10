@@ -11,6 +11,8 @@ function HomeController($cookies, $scope) {
 	cookie = cookie.replace(/\\054/g, ',');
 	console.log(cookie);
 	console.log(JSON.parse(cookie));
+	console.log(JSON.parse(cookie).username);
+	console.log(JSON.parse(cookie)["group"]);
 	$scope.userInfo = {
 		userName: JSON.parse(cookie).username,
 		group: JSON.parse(cookie).group
