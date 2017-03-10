@@ -9,13 +9,15 @@ HomeController.$inject = ['$cookies','$scope'];
 function HomeController($cookies, $scope) {
 	var cookie = $cookies.get('user_details');
 	cookie = cookie.replace(/\\054/g, ',');
+	cookie = JSON.parse(cookie);
 	console.log(cookie);
-	console.log(JSON.parse(cookie));
-	console.log(JSON.parse(cookie).username);
-	console.log(JSON.parse(cookie)["group"]);
+	console.log(cookie.username);
+	//console.log(JSON.parse(cookie));
+	//console.log(JSON.parse(cookie).username);
+	//console.log(JSON.parse(cookie)["group"]);
 	$scope.userInfo = {
-		userName: JSON.parse(cookie).username,
-		group: JSON.parse(cookie).group
+		userName: cookie.username,
+		group: cookie.group
 	};
 	//console.log(JSON.parse(cookie));
 }
