@@ -1,6 +1,7 @@
 'use strict';
 
 var angular = require('angular');
+require('angular-cookies');
 require('angular-animate');
 require('angular-ui-router');
 require('angular-ui-bootstrap');
@@ -12,7 +13,7 @@ require('./home');
 require('./bib-create');
 require('./search');
 require('./directives');
-var app = angular.module('mlrg',['ui.bootstrap','ui.router','mlrg.home','mlrg.bibcreate','mlrg.search','mlrg.directives','oitozero.ngSweetAlert','ngAnimate', 'ui.router.modal']);
+var app = angular.module('mlrg',['ui.bootstrap','ui.router','mlrg.home','mlrg.bibcreate','mlrg.search','mlrg.directives','oitozero.ngSweetAlert','ngAnimate', 'ui.router.modal', 'ngCookies']);
 
 app.config(states);
 

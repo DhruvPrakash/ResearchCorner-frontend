@@ -3,9 +3,13 @@
 angular.module('mlrg.home')
     .controller('HomeController', HomeController);
 
-HomeController.$inject = [];
+HomeController.$inject = ['$cookies','$scope'];
 
 
-function HomeController() {
-
+function HomeController($cookies, $scope) {
+	var cookie = $cookies.get(JSON.parse(user_details));
+	$scope.userInfo = {
+		userName: cookie.username,
+		group: cookie.group
+	};
 }
