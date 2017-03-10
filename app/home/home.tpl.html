@@ -32,7 +32,7 @@
             <!-- Main Menu -->
             <div class="side-menu-container">
                 <ul class="nav navbar-nav">
-                    <li ng-if="userInfo.username === 'Researcher'"><a href="#" ui-sref="home.createBib.addBib.types"><span class="glyphicon glyphicon-send"></span> Add References</a></li>
+                    <li ng-if="userInfo.group === 'Researcher'"><a href="#" ui-sref="home.createBib.addBib.types"><span class="glyphicon glyphicon-send"></span> Add References</a></li>
                     <li><a href="#" ui-sref= "search"><span class="glyphicon glyphicon-search"></span> Search</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-cloud"></span> Workspace</a></li>
                 </ul>
