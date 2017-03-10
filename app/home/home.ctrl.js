@@ -7,7 +7,7 @@ HomeController.$inject = ['$cookies','$scope'];
 
 
 function HomeController($cookies, $scope) {
-	var cookie = $cookies.get(JSON.parse(user_details));
+	var cookie = JSON.parse($cookies.get('user_details'));
 	$scope.userInfo = {
 		userName: cookie.username,
 		group: cookie.group
