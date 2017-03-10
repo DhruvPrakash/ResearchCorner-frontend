@@ -12,7 +12,7 @@ function HomeController($cookies, $scope) {
 	console.log(cookie);
 	cookie = JSON.parse(cookie);
 	console.log(cookie);
-	console.log(cookie.keys());
+	console.log(Object.keys(cookie));
 	//console.log(JSON.parse(cookie));
 	//console.log(JSON.parse(cookie).username);
 	//console.log(JSON.parse(cookie)["group"]);
