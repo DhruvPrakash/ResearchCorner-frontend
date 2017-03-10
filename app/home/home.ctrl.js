@@ -7,9 +7,9 @@ HomeController.$inject = ['$cookies','$scope'];
 
 
 function HomeController($cookies, $scope) {
-	var cookie = $cookies.getObject('user_details');
+	//var cookie = $cookies.getObject('user_details');
 	//cookie = cookie.replace(/\\054/g, ',');
-	console.log(cookie);
+	//console.log(cookie);
 	// cookie = JSON.parse(cookie);
 	// console.log(cookie);
 	// console.log(Object.values(cookie));
@@ -17,8 +17,8 @@ function HomeController($cookies, $scope) {
 	// console.log(JSON.parse(cookie).username);
 	//console.log(JSON.parse(cookie)["group"]);
 	$scope.userInfo = {
-		userName: cookie.username,
-		group: cookie.group
+		userName: 'researcher',
+		group: 'Researcher'
 	};
 	//console.log(JSON.parse(cookie));
 }
