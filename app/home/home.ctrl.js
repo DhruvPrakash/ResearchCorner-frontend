@@ -12,5 +12,5 @@ function HomeController($cookies, $scope) {
 		userName: cookie.username,
 		group: cookie.group
 	};
-	console.log(cookie);
+	console.log(JSON.parse(cookie));
 }
