@@ -10,6 +10,14 @@
 	text-align: right;
 }
 
-.edit-icon-for-bib i {
+.edit-icon-for-bib i,  {
 	cursor: pointer;
+}
+
+.well.biblist-well {
+	min-height: 320px;
+}
+
+.biblist-well .biblist-well-title {
+	text-align: center;
 }

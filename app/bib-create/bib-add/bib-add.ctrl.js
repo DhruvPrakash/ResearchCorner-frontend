@@ -10,7 +10,9 @@ BibAddController.$inject = ['$scope', 'Bib', '$state', 'SweetAlert'];
 function BibAddController($scope, Bib, $state, SweetAlert) {
 
     $scope.mode = ($state.current.name === 'editModal') ? 'edit' : 'add';
-    $scope.files = null;
+    $scope.files = {
+        file: null
+    };
 
     $scope.bib = {
         availableTypes: Bib.getAvailableTypes(),
@@ -30,7 +32,7 @@ function BibAddController($scope, Bib, $state, SweetAlert) {
 
 
     $scope.clearFields = function() {
-        $scope.files = null;
+        $scope.files.file = null;
     };
 
     $scope.changeBibAddTab = function(selectedTab) {
@@ -57,9 +59,9 @@ function BibAddController($scope, Bib, $state, SweetAlert) {
         }
 
 
-        if ($scope.files !== null) {
-            if ($scope.files[0].name.slice(-3) === 'pdf') {
-                Bib.uploadPDFFile($scope.files[0], $scope.bib.bibFields.payload);
+        if ($scope.files.file !== null) {
+            if ($scope.files.file[0].name.slice(-3) === 'pdf') {
+                Bib.uploadPDFFile($scope.files.file[0], $scope.bib.bibFields);
                 SweetAlert.swal('The bib item along with the file are being added', '', 'success');
             } else {
                 SweetAlert.swal('Please upload a PDF file', '', 'warning');

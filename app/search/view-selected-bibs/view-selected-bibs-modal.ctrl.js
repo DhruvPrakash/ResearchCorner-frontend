@@ -7,7 +7,6 @@ ViewSelectedBibsModalInstanceController.$inject = ['$scope', '$uibModalInstance'
 
 function ViewSelectedBibsModalInstanceController($scope, $uibModalInstance, selectedBibs, SweetAlert, $q) {
     $scope.selectedBibs = selectedBibs;
-
     $scope.pagination = {
         currentPage: 1,
         totalPages: Math.ceil($scope.selectedBibs.length / 10),

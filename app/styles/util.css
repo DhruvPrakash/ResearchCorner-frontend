@@ -78,4 +78,11 @@ input[type="radio"].styled:checked label:after,
   cursor: pointer;
 }
 
+.pointer-cursor {
+  cursor: pointer;
+}
 
+.next-to {
+  display: inline-block;
+  width: 300px;
+}

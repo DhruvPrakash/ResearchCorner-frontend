@@ -70,8 +70,16 @@ select[name="bib-type-select"] {
 	text-align: right;
 }
 
-.edit-icon-for-bib i {
+.edit-icon-for-bib i,  {
 	cursor: pointer;
+}
+
+.well.biblist-well {
+	min-height: 320px;
+}
+
+.biblist-well .biblist-well-title {
+	text-align: center;
 }
 :focus {
   outline: none;
@@ -578,4 +586,11 @@ input[type="radio"].styled:checked label:after,
   cursor: pointer;
 }
 
+.pointer-cursor {
+  cursor: pointer;
+}
 
+.next-to {
+  display: inline-block;
+  width: 300px;
+}

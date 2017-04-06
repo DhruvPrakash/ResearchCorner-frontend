@@ -2,12 +2,13 @@
 
 require('./search');
 require('../bib-create/bib-add/bib');
+require('../user-workspace/biblist');
 angular.module('mlrg.search')
     .controller('SearchController', SearchController);
 
-SearchController.$inject = ['$scope', 'SearchBib', '$uibModal', 'SweetAlert', '$state', 'Bib'];
+SearchController.$inject = ['$scope', 'SearchBib', '$uibModal', 'SweetAlert', '$state', 'Bib', 'BibList'];
 
-function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib) {
+function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib, BibList) {
 
     var MAX_SELECTABLE = 250;
 
@@ -203,9 +204,29 @@ function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib)
         });
     };
 
+    $scope.addToList = function(){
+        $uibModal.open({
+            templateUrl: '/app/search/add-bibs-to-list/bib-list-modal.partial.html',
+            controller: 'AddBibsToListModalInstanceController',
+            size: 'lg',
+            resolve: {
+                selectedBibIds: function(){
+                    return $scope.selectedBibs.map(function(bib){
+                        return bib.id;
+                    });
+                },
+                bibLists: function(){
+                    
+                }
+            }
+        });
+    };
+
     $scope.editBib = function(bib) {
         Bib.setBibToBeEdited(bib);
         $state.go('editModal');
     };
+
+
 
 }
