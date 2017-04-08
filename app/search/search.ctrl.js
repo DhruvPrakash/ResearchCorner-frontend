@@ -205,21 +205,26 @@ function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib,
     };
 
     $scope.addToList = function(){
-        $uibModal.open({
-            templateUrl: '/app/search/add-bibs-to-list/bib-list-modal.partial.html',
-            controller: 'AddBibsToListModalInstanceController',
-            size: 'lg',
-            resolve: {
-                selectedBibIds: function(){
-                    return $scope.selectedBibs.map(function(bib){
-                        return bib.id;
-                    });
-                },
-                bibLists: function(){
-                    
+        if ($scope.selectedBibs.length === 0) {
+            SweetAlert.swal('', 'No bibs have been selected to be added!', 'warning');
+        } else {
+            $uibModal.open({
+                templateUrl: '/app/search/add-bibs-to-list/bib-list-modal.partial.html',
+                controller: 'AddBibsToListModalInstanceController',
+                size: 'lg',
+                resolve: {
+                    selectedBibIds: function(){
+                        return $scope.selectedBibs.map(function(bib){
+                            return bib.id + '';//making it a string
+                        });
+                    },
+                    bibLists: function(){
+                        return BibList.fetchLists();
+                    }
                 }
-            }
-        });
+            });
+        }
+        
     };
 
     $scope.editBib = function(bib) {
