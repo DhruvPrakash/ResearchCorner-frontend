@@ -7,14 +7,14 @@ BibList.$inject = ['$http', '$q'/*, '$timeout'*/];
 
 function BibList($http, $q/*, $timeout*/) {
 
-	var metadataObj = {
-		'metadata' : {
-			'operationType' : null,
-			'page': null
-		}
-	};
 
 	var getMyLists = function(pageNo){
+		var metadataObj = {
+			'metadata' : {
+				'operationType' : null,
+				'page': null
+			}
+		};
 		metadataObj.metadata.operationType = '0';
 		metadataObj.metadata.page = pageNo;
 		// return $timeout(function(){
@@ -65,7 +65,13 @@ function BibList($http, $q/*, $timeout*/) {
 	};
 
 	var getSharedWithMe = function(pageNo){
-		metadataObj.metadata.operationType = "2";
+		var metadataObj = {
+			'metadata' : {
+				'operationType' : null,
+				'page': null
+			}
+		};
+		metadataObj.metadata.operationType = '2';
 		metadataObj.metadata.page = pageNo;
 		// return $timeout(function(){
 		// 	return {
@@ -95,6 +101,8 @@ function BibList($http, $q/*, $timeout*/) {
         var sharedWithMe = getSharedWithMe(pageNo);
         
         return $q.all([myLists, sharedWithMe]).then(function(results){
+        	console.log('the result array is ');
+        	console.log(results);
         	var result;
         	result = results[0].data.data.concat(results[1].data.data);
         	return result;
