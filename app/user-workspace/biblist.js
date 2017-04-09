@@ -100,13 +100,19 @@ function BibList($http, $q/*, $timeout*/) {
         var myLists = getMyLists(pageNo);
         var sharedWithMe = getSharedWithMe(pageNo);
         
-        return $q.all([myLists, sharedWithMe]).then(function(results){
-        	console.log('the result array is ');
-        	console.log(results);
-        	var result;
-        	result = results[0].data.data.concat(results[1].data.data);
-        	return result;
+        console.log('Before q.all');
+
+        return myLists.then(function(result){
+        	return result.data.data;
         });
+
+        // return $q.all([myLists, sharedWithMe]).then(function(results){
+        // 	console.log('the result array is ');
+        // 	console.log(results);
+        // 	var result;
+        // 	result = results[0].data.data.concat(results[1].data.data);
+        // 	return result;
+        // });
     };
 
 
