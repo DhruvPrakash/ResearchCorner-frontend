@@ -94,7 +94,7 @@ function AddBibsToListModalInstanceController($scope, selectedBibIds, bibLists, 
                 $scope.close();
             });            
         } else if($scope.selectedLists.length > 0) {
-            BibList.updateList().then(function(){
+            BibList.updateList($scope.selectedLists, selectedBibIds).then(function(){
                 SweetAlert.swal('The selected bibs have been added to selected lists!','','success');
                 $scope.close();
             }, function(){
