@@ -132,7 +132,7 @@ function BibList($http, $q/*, $timeout*/) {
     	var listPromises = lists.map(function(listName) {
     		return $http.post('/api/updatebiblist/', {
     			'metadata': {
-    				'bibListName' : listName,
+    				'bibListName' : listName.bibListName,
     				'operationType': '0'
     			},
     			'data' : {
