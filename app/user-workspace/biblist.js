@@ -103,6 +103,7 @@ function BibList($http, $q/*, $timeout*/) {
         console.log('Before q.all');
 
         return myLists.then(function(result){
+        	console.log('inside the resolved promise');
         	return result.data.data;
         });
 
