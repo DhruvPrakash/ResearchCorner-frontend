@@ -21,12 +21,11 @@ function HomeController($cookies, $scope) {
 	console.log(result1);
 	console.log(result2);
 
-	console.log('going to print result1s username');
+	var result1parts = result1.split(':');
+	var result2parts = result2.split(':');
 
-	console.log(result1.username);
-
-	console.log('going to stringify it');
-	console.log(JSON.parse(JSON.stringify(result1)));
+	console.log(result1parts);
+	console.log(result2parts);
 
 	//console.log(cookie);
 	//console.log(newTemp);
