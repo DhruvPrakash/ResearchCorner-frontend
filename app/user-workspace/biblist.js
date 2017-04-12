@@ -142,12 +142,6 @@ function BibList($http/*, $q, $timeout*/) {
         var myLists = getMyLists(pageNo);
         var sharedWithMe = getSharedWithMe(pageNo);
         
-        //console.log('Before q.all');
-
-        // return myLists.then(function(result){
-        // 	console.log('inside the resolved promise');
-        // 	return result.data.data;
-        // });
 
         return $q.all([myLists, sharedWithMe]).then(function(results){
         	console.log('the result array is ');
@@ -530,6 +524,18 @@ function BibList($http/*, $q, $timeout*/) {
     	// },1000);
     };
 
+    var shareList = function(bibListId, userIds){
+    	return $http.post('/api/sharebiblist', {
+    		'metadata': {
+    			
+    		},
+    		'data' : {
+    			'bibListId': bibListId,
+    			'userids' : userIds
+    		}
+    	});
+    }
+
     var bibListObj = {
         fetchLists: fetchLists,
         createList: createList,
@@ -537,7 +543,8 @@ function BibList($http/*, $q, $timeout*/) {
         getMyLists: getMyLists,
         getSharedWithMe: getSharedWithMe,
         getBibItemsInList: getBibItemsInList,
-        getSharedByMe: getSharedByMe
+        getSharedByMe: getSharedByMe,
+        shareList: shareList
     };
 
     return bibListObj;

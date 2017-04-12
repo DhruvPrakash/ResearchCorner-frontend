@@ -99,11 +99,11 @@ function UserWorkspaceController($scope, MyBibLists, BibList, $uibModal, User) {
     		controller: 'ShareListInstanceController',
     		size: 'md',
     		resolve: {
-    			sharedList: function(){
+    			SharedList: function(){
     				return list;
     			},
-    			users: function(){
-    				return User.fetchUsers();
+    			Users: function(){
+    				return User.fetchUsers($scope.userInfo.userName);
     			}
     		}
     	})

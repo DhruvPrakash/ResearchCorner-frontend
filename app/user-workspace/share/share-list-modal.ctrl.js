@@ -3,77 +3,70 @@
 angular.module('mlrg.userworkspace')
     .controller('ShareListInstanceController', ShareListInstanceController);
 
-ShareListInstanceController.$inject = ['$scope', '$uibModalInstance', 'SweetAlert', 'BibList','sharedList', 'users'];
+ShareListInstanceController.$inject = ['$scope', '$uibModalInstance', 'SweetAlert', 'BibList','SharedList', 'Users'];
 
-function ShareListInstanceController($scope, $uibModalInstance, SweetAlert, BibList, sharedList, users) {
+function ShareListInstanceController($scope, $uibModalInstance, SweetAlert, BibList, SharedList, Users) {
     
-	console.log(users);
 
-    //var availableLists = bibLists;
-    // $scope.newBibListName = '';
-    // $scope.pageInfo = {
-    //     currentPage: 0,
-    //     itemsPerPage: 5,
-    // }
-    // $scope.pageInfo.totalPages = Math.floor(availableLists.length / $scope.pageInfo.itemsPerPage);
+    var availableUsers = Users;
+    $scope.pageInfo = {
+        currentPage: 0,
+        itemsPerPage: 5,
+    }
+    $scope.pageInfo.totalPages = Math.floor(availableUsers.length / $scope.pageInfo.itemsPerPage);
 
-    // $scope.availableDisplayedLists = [];
-    // $scope.selectedLists = [];
+    $scope.availableDisplayedUsers = [];
+    $scope.selectedUsers = [];
 
+    $scope.bibListToBeShared = SharedList;
+    
+    var setAvailableDisplayed = function(){
+        $scope.availableDisplayedUsers = [];
+        for(var i = ($scope.pageInfo.currentPage * $scope.pageInfo.itemsPerPage); i<($scope.pageInfo.currentPage + 1) * $scope.pageInfo.itemsPerPage && i < availableUsers.length; i++) {
+            $scope.availableDisplayedUsers.push(availableUsers[i]);
+        }
+    };
 
-
-    // var setAvailableDisplayed = function(){
-    //     $scope.availableDisplayedLists = [];
-    //     for(var i = ($scope.pageInfo.currentPage * $scope.pageInfo.itemsPerPage); i<($scope.pageInfo.currentPage + 1) * $scope.pageInfo.itemsPerPage && i < availableLists.length; i++) {
-    //         $scope.availableDisplayedLists.push(availableLists[i]);
-    //     }
-    // };
-
-    // $scope.togglePage = function(nextOrPrev) {
-    //     $scope.pageInfo.currentPage = (nextOrPrev === 'prev') ? $scope.pageInfo.currentPage - 1 : $scope.pageInfo.currentPage + 1;
-    //     setAvailableDisplayed();
-    // };
+    $scope.togglePage = function(nextOrPrev) {
+        $scope.pageInfo.currentPage = (nextOrPrev === 'prev') ? $scope.pageInfo.currentPage - 1 : $scope.pageInfo.currentPage + 1;
+        setAvailableDisplayed();
+    };
 
     $scope.search = function(){
-        // if($scope.searchText !== '') {
-        //     $scope.pageInfo.currentPage = 0;
-        //     availableLists = bibLists.filter(function(list){
-        //         return list.bibListName.toLowerCase().indexOf($scope.searchText.toLowerCase()) !== -1;
-        //     });
-        //     $scope.pageInfo.totalPages = Math.floor(availableLists.length / $scope.pageInfo.itemsPerPage);
-        //     setAvailableDisplayed();
-        // } else {
-        //     $scope.pageInfo.currentPage = 0;
-        //     availableLists = bibLists;
-        //     $scope.pageInfo.totalPages = Math.floor(availableLists.length / $scope.pageInfo.itemsPerPage);
-        //     setAvailableDisplayed();
-        // }
+        if($scope.searchText !== '') {
+            $scope.pageInfo.currentPage = 0;
+            availableUsers = Users.filter(function(user){
+                return user.username.toLowerCase().indexOf($scope.searchText.toLowerCase()) !== -1;
+            });
+            $scope.pageInfo.totalPages = Math.floor(availableUsers.length / $scope.pageInfo.itemsPerPage);
+            setAvailableDisplayed();
+        } else {
+            $scope.pageInfo.currentPage = 0;
+            availableUsers = Users;
+            $scope.pageInfo.totalPages = Math.floor(availableUsers.length / $scope.pageInfo.itemsPerPage);
+            setAvailableDisplayed();
+        }
     };
 
-    //create a bib list or update a bib list can be done here
 
-    $scope.addToSelected = function(list) {
+    $scope.addToSelected = function(user) {
     	var alreadySelected = false;;
-        if($scope.newBibListName !== '') {
-            SweetAlert.swal('Sorry, cannot select a bib list and create one at the same time.', '', 'warning');
-            return;
-        }
-
-        if ($scope.selectedLists.length < 5){
-            alreadySelected = $scope.selectedLists.some(function(selectedList){
-                return selectedList.bibListName === list.bibListName && selectedList.id === list.id;
+        
+        if ($scope.selectedUsers.length < 5){
+            alreadySelected = $scope.selectedUsers.some(function(selectedUser){
+                return selectedUser.username === user.username && selectedUser.id === user.id;
             });
             if(!alreadySelected) {
-                $scope.selectedLists.push(list);
+                $scope.selectedUsers.push(user);
             }
     	} else {
-            SweetAlert.swal('Sorry, only 5 lists can be selected at a time.', '', 'warning');
+            SweetAlert.swal('Sorry, only 5 users can be selected at a time.', '', 'warning');
         }
     };
 
-    $scope.removeFromSelected = function(listId) {
-    	$scope.selectedLists = $scope.selectedLists.filter(function(list){
-    		return list.id !== listId;
+    $scope.removeFromSelected = function(userId) {
+    	$scope.selectedUsers = $scope.selectedUsers.filter(function(user){
+    		return user.id !== userId;
     	});
     };
 
@@ -83,27 +76,23 @@ function ShareListInstanceController($scope, $uibModalInstance, SweetAlert, BibL
 
 
 
-    $scope.addToLists = function(){
-        // if($scope.newBibListName !== '') {
-        //     BibList.createList($scope.newBibListName, selectedBibIds).then(function(){
-        //         SweetAlert.swal('The bib list has been created and the selected bibs have been added!','','success');
-        //         $scope.close();
-        //     }, function(){
-        //         SweetAlert.swal('Something went wrong!', '', 'warning');
-        //         $scope.close();
-        //     });            
-        // } else if($scope.selectedLists.length > 0) {
-        //     BibList.updateList($scope.selectedLists, selectedBibIds).then(function(){
-        //         SweetAlert.swal('The selected bibs have been added to selected lists!','','success');
-        //         $scope.close();
-        //     }, function(){
-        //         SweetAlert.swal('Something went wrong!', '', 'warning');
-        //         $scope.close();
-        //     })
-        // } else {
-        //     SweetAlert.swal('Please either select lists or create one');
-        // }
+    $scope.share = function(){
+        var selectedUserIds = [];
+    	if($scope.selectedUsers.length === 0) {
+    		SweetAlert.swal('Please select some users to share the list with!');
+    	} else {
+    		selectedUserIds = $scope.selectedUsers.map(function(user){
+    			return user.id;
+    		});
+    		BibList.shareList($scope.bibListToBeShared.id, selectedUserIds).then(function(){
+    			SweetAlert.swal($scope.bibListToBeShared.bibListName + ' is shared with the selected people');
+    			$scope.close();
+    		}, function(){
+    			SweetAlert.swal('Something went wrong!','','warning');
+    			$scope.close();
+    		});
+    	}
     };
 
-    //setAvailableDisplayed();
+    setAvailableDisplayed();
 }
