@@ -26,7 +26,13 @@ function HomeController($cookies, $scope) {
 	var result1parts = result1.split(':');
 	var result2parts = result2.split(':');
 
+
+	result1parts[0] = result1parts[0].slice(1,-1);
+	result1parts[1] = result1parts[1].slice(1,-1);
 	console.log(result1parts);
+
+	result2parts[0] = result2parts[0].slice(1,-1);
+	result2parts[1] = result2parts[1].slice(1,-1);
 	console.log(result2parts);
 
 	//console.log(cookie);
