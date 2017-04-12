@@ -28,12 +28,14 @@ function HomeController($cookies, $scope) {
 
 
 	result1parts[0] = result1parts[0].slice(1,-1);
-	result1parts[1] = result1parts[1].slice(1,-1);
+	result1parts[1] = result1parts[1].slice(1,-1).slice(1);
 	console.log(result1parts);
 
 	result2parts[0] = result2parts[0].slice(1,-1);
-	result2parts[1] = result2parts[1].slice(1,-1);
+	result2parts[1] = result2parts[1].slice(1,-1).slice(1);
 	console.log(result2parts);
+
+
 
 	//console.log(cookie);
 	//console.log(newTemp);
@@ -44,8 +46,8 @@ function HomeController($cookies, $scope) {
 	// console.log(JSON.parse(cookie).username);
 	//console.log(JSON.parse(cookie)["group"]);
 	$scope.userInfo = {
-		userName: 'researcher',
-		group: 'Researcher'
+		userName: (result1parts[0] === 'username') ? result1parts[1] : result2parts[1],
+		group: (result1parts[0] === 'group') ? result1parts[1] : result2parts[1]
 	};
 	//console.log(JSON.parse(cookie));
 }
