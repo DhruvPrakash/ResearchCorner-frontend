@@ -3,9 +3,9 @@
 angular.module('mlrg.userworkspace')
     .factory('BibList', BibList);
 
-BibList.$inject = ['$http', '$q', '$timeout'];
+BibList.$inject = ['$http'/*, '$q', '$timeout'*/];
 
-function BibList($http, $q, $timeout) {
+function BibList($http/*, $q, $timeout*/) {
 
 
 	var getMyLists = function(pageNo){
@@ -17,58 +17,58 @@ function BibList($http, $q, $timeout) {
 		};
 		metadataObj.metadata.operationType = '0';
 		metadataObj.metadata.page = pageNo;
-		return $timeout(function(){
-			return {
-				'data': {
+		// return $timeout(function(){
+		// 	return {
+		// 		'data': {
    				
-				   'data':[
-				      {
-				         "owner_id":25,
+		// 		   'data':[
+		// 		      {
+		// 		         "owner_id":25,
 				         
-				         "id":1,
-				         "bibListName":"Machine learning biblist"
-				      },
-				      {
-				         "owner_id":25,
+		// 		         "id":1,
+		// 		         "bibListName":"Machine learning biblist"
+		// 		      },
+		// 		      {
+		// 		         "owner_id":25,
 				         
-				         "id":2,
-				         "bibListName":"Psychology psycosocial biblist"
-				      },
-				      {
-				      	"owner_id": 25,
+		// 		         "id":2,
+		// 		         "bibListName":"Psychology psycosocial biblist"
+		// 		      },
+		// 		      {
+		// 		      	"owner_id": 25,
 				      	
-				      	"id": 3,
-				      	"bibListName": "Pedagogy of grammer biblist"
-				      },
-				      {
-				      	"owner_id": 25,
+		// 		      	"id": 3,
+		// 		      	"bibListName": "Pedagogy of grammer biblist"
+		// 		      },
+		// 		      {
+		// 		      	"owner_id": 25,
 				      	
-				      	"id": 4,
-				      	"bibListName": "lt surge's pokemon biblist"
-				      },
-				      {
-				      	"owner_id": 25,
+		// 		      	"id": 4,
+		// 		      	"bibListName": "lt surge's pokemon biblist"
+		// 		      },
+		// 		      {
+		// 		      	"owner_id": 25,
 				      	
-				      	"id": 5,
-				      	"bibListName": "Justice league biblist"
-				      },
-				      {
-				      	"owner_id": 25,
+		// 		      	"id": 5,
+		// 		      	"bibListName": "Justice league biblist"
+		// 		      },
+		// 		      {
+		// 		      	"owner_id": 25,
 				      	
-				      	"id": 6,
-				      	"bibListName": "Assignments not corrected by professor Aravindan biblist"
-				      },
-				      {
-				      	"owner_id": 25,
+		// 		      	"id": 6,
+		// 		      	"bibListName": "Assignments not corrected by professor Aravindan biblist"
+		// 		      },
+		// 		      {
+		// 		      	"owner_id": 25,
 				      	
-				      	"id": 7,
-				      	"bibListName": "Vandala and animals biblist"
-				      }
-				   ]
-				}
-			}
-		},2000);
-		//return $http.post('/api/getbiblists/', metadataObj);
+		// 		      	"id": 7,
+		// 		      	"bibListName": "Vandala and animals biblist"
+		// 		      }
+		// 		   ]
+		// 		}
+		// 	}
+		// },2000);
+		return $http.post('/api/getbiblists/', metadataObj);
 	};
 
 	var getSharedWithMe = function(pageNo){
@@ -111,30 +111,30 @@ function BibList($http, $q, $timeout) {
 		};
 		metadataObj.metadata.operationType = '1';
 		metadataObj.metadata.page = pageNo;
-		return $timeout(function(){
-			return {
-				'data': {
-					'data': [
-						{
-							 "username":"adivandhya@gmail.com",
-							 "id":2,
-							 "bibListName":"ABC"
-						},
-						{
-							 "username":"adivandhya",
-							 "id":1,
-							 "bibListName":"ABC"
-						},
-						{
-							"username": "cowman",
-							"id":900,
-							"bibListName": "cowman's bibs"
-						}
-					]
-				}
-			}
-		});
-		//return $http.post('/api/getbiblists/', metadataObj);
+		// return $timeout(function(){
+		// 	return {
+		// 		'data': {
+		// 			'data': [
+		// 				{
+		// 					 "username":"adivandhya@gmail.com",
+		// 					 "id":2,
+		// 					 "bibListName":"ABC"
+		// 				},
+		// 				{
+		// 					 "username":"adivandhya",
+		// 					 "id":1,
+		// 					 "bibListName":"ABC"
+		// 				},
+		// 				{
+		// 					"username": "cowman",
+		// 					"id":900,
+		// 					"bibListName": "cowman's bibs"
+		// 				}
+		// 			]
+		// 		}
+		// 	}
+		// });
+		return $http.post('/api/getbiblists/', metadataObj);
 	};
    
     var fetchLists = function(){
