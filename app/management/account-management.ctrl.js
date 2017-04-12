@@ -6,7 +6,7 @@ angular.module('mlrg.management')
 AccountManagementController.$inject = ['$scope','SweetAlert','User','$window'];
 
 
-function AccountManagementController($scope, SweetAlert, User, '$window') {
+function AccountManagementController($scope, SweetAlert, User, $window) {
 	
 
 	$scope.changePass = function(){

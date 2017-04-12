@@ -10,8 +10,9 @@ function HomeController($cookies, $scope) {
 	//var cookie = $cookies.getObject('user_details');
 	var cookie1 = $cookies.get('user_details');
 	cookie1 = cookie1.replace(/\\054/g, ',');
+	var newTemp = cookie1.replace(/"/g, '\'');
 	//console.log(cookie);
-	console.log(cookie1);
+	console.log(newTemp);
 	// cookie = JSON.parse(cookie);
 	// console.log(cookie);
 	// console.log(Object.values(cookie));
