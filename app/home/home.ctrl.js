@@ -13,7 +13,7 @@ function HomeController($cookies, $scope) {
 	var splitOn = cookie1.split(',');
 	//console.log('split on:');
 	//console.log(splitOn);
-	var result1 = splitOn[0].slice(1, -1) + '}';
+	var result1 = splitOn[0].slice(1) + '}';
 	var result2 = '{' + splitOn[1].slice(1, -1);
 	
 	console.log(result1);
