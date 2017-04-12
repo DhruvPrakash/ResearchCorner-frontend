@@ -115,7 +115,7 @@ function UserWorkspaceController($scope, MyBibLists, BibList, $uibModal, User) {
         if($scope.mainTab.selectedTab === 'my-lists') {
             bibListId = bibList.id;
         } else if ($scope.mainTab.selectedTab === 'shared-with-me' || $scope.mainTab.selectedTab === 'shared-by-me') {
-            bibListId = list.bibListId;
+            bibListId = bibList.bibListId;
         }
         $scope.view.type = 'bibitems';
     	$scope.view.message = 'Please wait! We are fetching the bibitems for the ' + bibList.bibListName + ' list';
