@@ -7,7 +7,7 @@ ShareListInstanceController.$inject = ['$scope', '$uibModalInstance', 'SweetAler
 
 function ShareListInstanceController($scope, $uibModalInstance, SweetAlert, BibList, sharedList, users) {
     
-	console.log(users.data);
+	console.log(users);
 
     //var availableLists = bibLists;
     // $scope.newBibListName = '';
