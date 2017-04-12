@@ -56,7 +56,8 @@ function UserWorkspaceController($scope, MyBibLists, BibList, $uibModal, User) {
         			$scope.lists.displayedLists = response.data.data.reduce(function(res,curr,next){
         				var tempObj = {
         					'usernames': [curr.username],
-        					'bibListName': curr.bibListName
+        					'bibListName': curr.bibListName,
+                            'bibListId' : curr.bibListId
         				};
         				if(res.length === 0) {
         					res.push(tempObj);
@@ -109,11 +110,17 @@ function UserWorkspaceController($scope, MyBibLists, BibList, $uibModal, User) {
     	})
     };
 
-    $scope.showBibItems = function(bibListId, bibListName){
-    	$scope.view.type = 'bibitems';
-    	$scope.view.message = 'Please wait! We are fetching the bibitems for the ' + bibListName + ' list';
+    $scope.showBibItems = function(bibList){
+    	var bibListId;
+        if($scope.mainTab.selectedTab === 'my-lists') {
+            bibListId = bibList.id;
+        } else if ($scope.mainTab.selectedTab === 'shared-with-me' || $scope.mainTab.selectedTab === 'shared-by-me') {
+            bibListId = list.bibListId;
+        }
+        $scope.view.type = 'bibitems';
+    	$scope.view.message = 'Please wait! We are fetching the bibitems for the ' + bibList.bibListName + ' list';
     	BibList.getBibItemsInList(bibListId).then(function(response){
-    		$scope.view.message = 'Showing bibitems for the ' + bibListName + ' list';
+    		$scope.view.message = 'Showing bibitems for the ' + bibList.bibListName + ' list';
     		$scope.displayedBibs = response.data.data;
     	});
 
