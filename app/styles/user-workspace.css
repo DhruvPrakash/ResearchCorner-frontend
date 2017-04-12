@@ -1,0 +1,7 @@
+.biblist-table tr:first-child td {
+	border-top: none;
+}
+
+// .biblist-table tr td:nth-child(2) {
+// 	text-align:center;
+// }

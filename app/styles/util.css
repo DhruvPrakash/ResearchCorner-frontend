@@ -7,6 +7,10 @@
 	margin-top:20px;
 }
 
+.space-below {
+  margin-bottom: 20px;
+}
+
 .universal-content-padding {
 	padding-top: 40px;
 	padding-left: 30px;
@@ -86,3 +90,13 @@ input[type="radio"].styled:checked label:after,
   display: inline-block;
   width: 300px;
 }
+
+.large-icon {
+  font-size:20px;
+}
+
+.vertical-middle {
+  vertical-align: middle !important;
+}
+
+

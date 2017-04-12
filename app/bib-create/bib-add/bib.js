@@ -59,7 +59,6 @@ function Bib($http, FileUpload) {
         'Misc': ['doi', 'abstract']
     };
 
-
     var bibFields = {
         metadata: {
             type: 'article',

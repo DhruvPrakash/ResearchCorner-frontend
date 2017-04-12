@@ -1,0 +1,59 @@
+<section class="">
+	<ul class="nav nav-tabs">
+	  <li role="presentation" ng-click="changeMainTab('my-lists')" ng-class="{'active': mainTab.selectedTab === 'my-lists'}"><a href="" >My Lists</a></li>
+	  <li role="presentation" ng-click="changeMainTab('shared-with-me')" ng-class="{'active': mainTab.selectedTab === 'shared-with-me'}"><a href="" >Shared With Me</a></li>
+	  <li role="presentation" ng-click="changeMainTab('shared-by-me')" ng-class="{'active': mainTab.selectedTab === 'shared-by-me'}"><a href="" >Shared By Me</a></li>
+	</ul>
+	
+	<br>
+	
+	<div class="col-md-12 col-sm-12 col-lg-12" ng-if="view.type === 'biblists'">
+		<div ng-if="lists.fetching">Please wait while we fetch the lists</div>
+		<table class="table biblist-table">
+			<thead>
+				<tr>
+					<th>List name</th>
+					<th>Owner</th>
+					<th ng-if="mainTab.selectedTab === 'my-lists'"></th>
+					<th ng-if="mainTab.selectedTab === 'shared-by-me'"></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="list in lists.displayedLists">
+					<td class="vertical-middle">{{list.bibListName}}</td>
+					<td class="vertical-middle">{{list.owner}}</td>
+					<td ng-if="mainTab.selectedTab ==='my-lists'"><button class="btn btn-custom-alt">Share this list</button></td>
+					<td ng-if="mainTab.selectedTab === 'shared-by-me'"><button class="btn btn-custom-alt">Shared With</button></td>
+					<td><button class="btn btn-success" ng-click="showBibItems(list.id,list.bibListName)"><span class="glyphicon glyphicon-list"></span> Show bibitems <span class="glyphicon glyphicon-arrow-right"></span></button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<form class="row space-above" role="form" ng-if="view.type === 'bibitems'">
+		<div class="col-md-12 space-below"><span class="glyphicon glyphicon-triangle-left large-icon vertical-middle"></span><button class="btn btn-default" ng-click = "showBibLists()">Back to biblists</button> <strong>{{view.message}}</strong></div>
+
+		<div ng-repeat="bib in displayedBibs">
+	    	<div class="col-md-12">
+		        <div class="col-md-offset-1 col-md-10 nopadding">
+		        	<span ng-if="!!bib.title"><strong>Title:</strong> Awesome title {{bib.title}}</span>
+		        	<br>
+		        	<span ng-if="!!bib.author"><strong>Author:</strong> Awesome author{{bib.author}}</span>
+		        	<br>
+		        	<span ng-if="!!bib.year"><strong>Year:</strong> 1995{{bib.year}}</span>
+		        	<br>
+		        	<span class="btn btn-success" ng-click="viewAbstract(bib)">View Abstract</span>
+				    <span class="btn btn-info" ng-click="viewFullDetails(bib)">View Full Details</span>
+		        	<a class="btn btn-primary" ng-if="bib.doi !== ''" ng-href="http://dx.doi.org/{{bib.doi}}" target="_blank">Open paper</a>
+		        </div>
+		        
+	        </div>
+		    <div class="col-md-12 nopadding">
+		       	<hr>
+		    </div>		
+	     </div>
+	</form>
+	
+
+</section>

@@ -24,8 +24,8 @@ function FileUpload($http) {
         var formData = new FormData();
         formData.append('file', fileData);
         if (data !== null) {
-            formData.append('metadata', data.metadata);
-            formData.append('payload', data.payload);
+            formData.append('metadata', JSON.stringify(data.metadata));
+            formData.append('payload', JSON.stringify(data.payload));
         }
         if (data !== null) {
             return $http.post('/api/addbib/', formData, {

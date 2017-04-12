@@ -467,6 +467,20 @@
                  },
 
              }
-         });
+         })
+        .state('home.userworkspace' , {
+            url: '/user-workspace',
+            views: {
+                '@home': {
+                    templateUrl: '/app/user-workspace/user-workspace.partial.html',
+                    controller: 'UserWorkspaceController',
+                }
+            },
+            resolve: {
+                MyBibLists: ['BibList', function (BibList) {
+                    return BibList.getMyLists(0);
+                }]
+            }
+        });
 
  }];

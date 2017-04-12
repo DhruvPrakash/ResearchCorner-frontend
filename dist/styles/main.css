@@ -506,6 +506,13 @@ select[name="bib-type-select"] {
     border-right: 1px solid #ccc;
     background-color: #337aca;
 }
+.biblist-table tr:first-child td {
+	border-top: none;
+}
+
+// .biblist-table tr td:nth-child(2) {
+// 	text-align:center;
+// }
 .nopadding {
 	padding-left: 0 !important;
 	padding-right: 0 !important;
@@ -513,6 +520,10 @@ select[name="bib-type-select"] {
 
 .space-above{
 	margin-top:20px;
+}
+
+.space-below {
+  margin-bottom: 20px;
 }
 
 .universal-content-padding {
@@ -594,3 +605,13 @@ input[type="radio"].styled:checked label:after,
   display: inline-block;
   width: 300px;
 }
+
+.large-icon {
+  font-size:20px;
+}
+
+.vertical-middle {
+  vertical-align: middle !important;
+}
+
+
