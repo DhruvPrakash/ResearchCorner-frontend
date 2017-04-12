@@ -22,9 +22,10 @@
 			<tbody>
 				<tr ng-repeat="list in lists.displayedLists">
 					<td class="vertical-middle">{{list.bibListName}}</td>
-					<td class="vertical-middle">{{list.owner}}</td>
+					<td class="vertical-middle" ng-if="!!list.owner">{{list.owner}}</td>
+					<td class="vertical-middle" ng-if="!list.owner">{{userInfo.userName}}</td>
 					<td ng-if="mainTab.selectedTab ==='my-lists'"><button class="btn btn-custom-alt">Share this list</button></td>
-					<td ng-if="mainTab.selectedTab === 'shared-by-me'"><button class="btn btn-custom-alt">Shared With</button></td>
+					<td ng-if="mainTab.selectedTab === 'shared-by-me'" ng-click="sharedWith(list)"><button class="btn btn-custom-alt">Shared With</button></td>
 					<td><button class="btn btn-success" ng-click="showBibItems(list.id,list.bibListName)"><span class="glyphicon glyphicon-list"></span> Show bibitems <span class="glyphicon glyphicon-arrow-right"></span></button></td>
 				</tr>
 			</tbody>

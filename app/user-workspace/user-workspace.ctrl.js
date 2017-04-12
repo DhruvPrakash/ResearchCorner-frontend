@@ -23,12 +23,12 @@ function UserWorkspaceController($scope, MyBibLists, BibList, $uibModal) {
 
     $scope.lists = {
     	displayedLists: MyBibLists.data.data,
-    	fetching: false,
-    	sharedWithMe: null,
-    	sharedByMe: null
+    	fetching: false
     };
 
+
     $scope.changeMainTab = function(selectedTab) {
+        var pageNo = 0;
         $scope.lists.fetching = false;
         $scope.mainTab.selectedTab = selectedTab;
         $scope.view.type = 'biblists';
@@ -37,7 +37,7 @@ function UserWorkspaceController($scope, MyBibLists, BibList, $uibModal) {
         if (selectedTab === 'shared-with-me') {
         	$scope.mainTab.currentTab = 'shared-with-me';
         	$scope.lists.fetching = true;
-        	BibList.getSharedWithMe().then(function(response){
+        	BibList.getSharedWithMe(pageNo).then(function(response){
         		if($scope.mainTab.currentTab === 'shared-with-me') {
         			$scope.lists.displayedLists = response.data.data;
         			$scope.lists.fetching = false;
@@ -49,16 +49,49 @@ function UserWorkspaceController($scope, MyBibLists, BibList, $uibModal) {
         } else if(selectedTab === 'shared-by-me') {
         	$scope.mainTab.currentTab = 'shared-by-me';
         	$scope.lists.fetching = true;
-        	// BibList.getSharedByMe().then(function(response){
-        	// 	if($scope.mainTab.currentTab === 'shared-by-me') {
-        	// 		$scope.lists.displayedLists = response.data.data;
-        	//		$scope.lists.fetching = false;
-        	// 	}        		
-        	// });
+        	BibList.getSharedByMe(pageNo).then(function(response){
+        		if($scope.mainTab.currentTab === 'shared-by-me') {
+        			
+        			$scope.lists.displayedLists = response.data.data.reduce(function(res,curr,next){
+        				var tempObj = {
+        					'usernames': [curr.username],
+        					'bibListName': curr.bibListName
+        				};
+        				if(res.length === 0) {
+        					res.push(tempObj);
+        				} else {
+        					//check if the bibListName is already in res
+        					var bibListArr = res.filter(function(bibList){
+        						return bibList.bibListName === curr.bibListName;
+        					});
+
+        					if(bibListArr[0] !== undefined) {
+        						bibListArr[0].usernames.push(curr.username);
+        					} else {
+        						res.push(tempObj);
+        					}
+        				}
+        				return res;
+        			},[]);
+        			$scope.lists.fetching = false;
+        		}        		
+        	});
         }
     };
 
-    
+    $scope.sharedWith = function(list) {
+    	console.log(list);
+    	$uibModal.open({
+    	    templateUrl: '/app/user-workspace/view-shared-with/view-shared-with-modal.partial.html',
+    	    controller: 'ViewSharedWithInstanceController',
+    	    size: 'md',
+    	    resolve: {
+    	        sharedWith: function() {
+    	            return list.usernames;
+    	        }
+    	    }
+    	});
+    };
 
     $scope.showBibItems = function(bibListId, bibListName){
     	$scope.view.type = 'bibitems';
