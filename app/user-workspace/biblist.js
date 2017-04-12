@@ -3,7 +3,7 @@
 angular.module('mlrg.userworkspace')
     .factory('BibList', BibList);
 
-BibList.$inject = ['$http',/* '$q', '$timeout'*/];
+BibList.$inject = ['$http','$q'/*, '$timeout'*/];
 
 function BibList($http, $q/*, $timeout*/) {
 
