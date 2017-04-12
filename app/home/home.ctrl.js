@@ -18,8 +18,8 @@ function HomeController($cookies, $scope) {
 	var result2 = '{' + splitOn[1].slice(1, -1);
 	result2 = result2.replace(/\\/g, '');
 	
-	result1 = result.slice(1,-1);
-	result2 = result.slice(1,-1);
+	result1 = result1.slice(1,-1);
+	result2 = result2.slice(1,-1);
 	console.log(result1);
 	console.log(result2);
 
