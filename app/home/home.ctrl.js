@@ -22,9 +22,12 @@ function HomeController($cookies, $scope) {
 	console.log(result2);
 
 	console.log('going to print result1s username');
+
 	console.log(result1.username);
 
-	
+	console.log('going to stringify it');
+	console.log(JSON.stringify(result1));
+
 	//console.log(cookie);
 	//console.log(newTemp);
 	// cookie = JSON.parse(cookie);
