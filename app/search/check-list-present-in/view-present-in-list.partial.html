@@ -2,12 +2,14 @@
     <h3 class="modal-title" id="modal-title">Biblists</h3>
 </div>
 <div class="modal-body" id="modal-body">
-    <p>This bib is present in the following lists:</p>
-    <ul>
+    <p ng-show="bibLists.length > 0">This bib is present in the following lists:</p>
+    <ul ng-show="bibLists.length > 0">
     	<li ng-repeat="bibList in bibLists">
     	{{bibList}}
     	</li>
     </ul>
+    <p ng-show="bibLists.length === 0">There are no biblists in which this bib is present in</p>
+
 </div>
 <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>

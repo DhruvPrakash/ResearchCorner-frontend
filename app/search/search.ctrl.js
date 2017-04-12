@@ -230,7 +230,7 @@ function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib,
     $scope.viewBibLists = function(bib){
         $uibModal.open({
             templateUrl: '/app/search/check-list-present-in/view-present-in-list.partial.html',
-            controller: 'ViewPresentInListInstanceController',
+            controller: 'ViewPresentInInstanceController',
             size: 'md',
             resolve: {
                 bibLists: function(){
