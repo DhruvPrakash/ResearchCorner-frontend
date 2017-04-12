@@ -9,7 +9,7 @@ HomeController.$inject = ['$cookies','$scope'];
 function HomeController($cookies, $scope) {
 	//var cookie = $cookies.getObject('user_details');
 	var cookie1 = $cookies.get('user_details');
-	//cookie = cookie.replace(/\\054/g, ',');
+	cookie1 = cookie1.replace(/\\054/g, ',');
 	//console.log(cookie);
 	console.log(cookie1);
 	// cookie = JSON.parse(cookie);
