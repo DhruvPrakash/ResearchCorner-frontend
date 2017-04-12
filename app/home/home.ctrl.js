@@ -31,7 +31,8 @@ function HomeController($cookies, $scope) {
 	result2parts[1] = result2parts[1].slice(1,-1).slice(1);
 	/*----------------------------------------------------------*/
 	
-
+	// var result1parts = ['username','researcher'];
+	// var result2parts = ['group', 'Researcher'];
 
 	$scope.userInfo = {
 		userName: (result1parts[0] === 'username') ? result1parts[1] : result2parts[1],

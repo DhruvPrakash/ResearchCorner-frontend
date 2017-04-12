@@ -85,7 +85,9 @@ function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib,
             $scope.searchedBibs = [];
             SearchBib.search($scope.searchParams).then(function(result) {
                 $scope.error.errorPresent = false;
-                $scope.searchedBibs = result.data.payload;
+                $scope.searchedBibs = result.data.payload.map(function(bib){
+                    bib.researchpaperpath = (bib.researchpaperpath !== undefined) bib.researchpaperpath.slice(4) : undefined; 
+                });
 
                 if ($scope.searchedBibs.length > 0) {
                     $scope.searchedBibs = markupSelectedBibs();
@@ -235,6 +237,19 @@ function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib,
             resolve: {
                 bibLists: function(){
                     return BibList.getBibListsByBib(bib.id);
+                }
+            }
+        });
+    };
+
+    $scope.associatePDF = function(bib){
+        $uibModal.open({
+            templateUrl: '/app/search/associate-pdf/associate-pdf.partial.html',
+            controller: 'AssociatePDFtInstanceController',
+            size: 'md',
+            resolve: {
+                bib: function(){
+                    return bib;
                 }
             }
         });

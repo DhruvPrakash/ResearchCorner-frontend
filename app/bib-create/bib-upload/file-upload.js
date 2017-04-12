@@ -40,9 +40,10 @@ function FileUpload($http) {
         }
     };
 
+
     var uploadObj = {
         uploadBibFile: uploadBibFile,
-        uploadPDFFile: uploadPDFFile
+        uploadPDFFile: uploadPDFFile,
     };
 
     return uploadObj;
