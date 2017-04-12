@@ -11,8 +11,13 @@ function HomeController($cookies, $scope) {
 	var cookie1 = $cookies.get('user_details');
 	cookie1 = cookie1.replace(/\\054/g, ',');
 	var splitOn = cookie1.split(',');
-	console.log('split on:');
-	console.log(splitOn);
+	//console.log('split on:');
+	//console.log(splitOn);
+	var result1 = splitOn[0].slice(1, -1) + '}';
+	var result2 = '{' + splitOn[1].slice(1, -1);
+	
+	console.log(result1);
+	console.log(result2);
 	//console.log(cookie);
 	//console.log(newTemp);
 	// cookie = JSON.parse(cookie);
