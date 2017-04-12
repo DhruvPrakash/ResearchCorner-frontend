@@ -14,7 +14,9 @@ function HomeController($cookies, $scope) {
 	//console.log('split on:');
 	//console.log(splitOn);
 	var result1 = splitOn[0].slice(1) + '}';
+	result1 = result1.replace(/\\/g, '');
 	var result2 = '{' + splitOn[1].slice(1, -1);
+	result2 = result2.replace(/\\/g, '');
 	
 	console.log(result1);
 	console.log(result2);
