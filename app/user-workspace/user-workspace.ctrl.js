@@ -28,10 +28,6 @@ function UserWorkspaceController($scope, MyBibLists, BibList, $uibModal, User) {
     	fetching: false
     };
 
-    User.fetchUsers().then(function(response){
-    	console.log(response);
-    });
-
     $scope.changeMainTab = function(selectedTab) {
         var pageNo = 0;
         $scope.lists.fetching = false;
@@ -105,6 +101,9 @@ function UserWorkspaceController($scope, MyBibLists, BibList, $uibModal, User) {
     		resolve: {
     			sharedList: function(){
     				return list;
+    			},
+    			users: function(){
+    				return User.fetchUsers();
     			}
     		}
     	})

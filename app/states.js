@@ -1,9 +1,10 @@
  'use strict';
 
  module.exports = ['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider) {
-     $urlRouterProvider.otherwise('');
+     $urlRouterProvider.when('', '/search');
      $stateProvider.state('home', {
              url: '',
+             abstract: true,
              templateUrl: '/app/home/home.tpl.html',
              controller: 'HomeController'
          })

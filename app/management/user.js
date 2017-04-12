@@ -38,7 +38,14 @@ function User($http, $q, $timeout) {
 		// 	}
 		// });
 
-		return $http.get('/management/listusers');
+		return $http.get('/management/listusers').then(function(result){
+			return result.data.map(function(user){
+				return {
+					'username': user.username,
+					'id': user.id
+				}
+			})
+		});
 	};
 	
 
