@@ -11,7 +11,7 @@
     <div class="row space-above">
             <div class="col-sm-6 col-md-6 col-lg-6 well biblist-well">
                 <div class="bg-info biblist-well-title"><strong>Available Users</strong></div>
-                <div class="space-btw-nav-content" style="text-align:center" ng-if="availableDisplayedUsers.length === 0">No lists available</div>
+                <div class="space-btw-nav-content" style="text-align:center" ng-if="availableDisplayedUsers.length === 0">No user(s) available</div>
                 <ul class="list-group" ng-if="availableDisplayedUsers.length > 0">
                     <li class="list-group-item" ng-repeat="user in availableDisplayedUsers">
                         <span>{{user.username}}</span>
@@ -23,7 +23,7 @@
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6 well biblist-well">
                 <div class="bg-info biblist-well-title"><strong>Selected Users (max 5 at a time)</strong></div>
-                <div class="space-btw-nav-content" style="text-align:center" ng-if="selectedUsers.length === 0">No lists selected</div>
+                <div class="space-btw-nav-content" style="text-align:center" ng-if="selectedUsers.length === 0">No user(s) selected</div>
                 <ul class="list-group" ng-if="selectedUsers.length > 0">
                     <li class="list-group-item" ng-repeat="user in selectedUsers">
                         <span>{{user.username}}</span>
