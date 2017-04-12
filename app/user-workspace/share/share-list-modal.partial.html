@@ -1,0 +1,47 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Share List <span class="pull-right" style="font-size:20px" ng-click=close()><i class="glyphicon glyphicon-remove pointer-cursor"></i></span></h3>
+
+</div>
+<div class="modal-body" id="modal-body">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <input type="text" class="form-control" placeholder="Search for user" ng-model="searchText" ng-change="search()">
+        </div>
+    </div>
+    <div class="row space-above">
+            <div class="col-sm-6 col-md-6 col-lg-6 well biblist-well">
+                <div class="bg-info biblist-well-title"><strong>Available Lists</strong></div>
+                <div class="space-btw-nav-content" style="text-align:center" ng-if="availableDisplayedLists.length === 0">No lists available</div>
+                <ul class="list-group" ng-if="availableDisplayedLists.length > 0">
+                    <li class="list-group-item" ng-repeat="list in availableDisplayedLists">
+                        <span ng-if="list.owner !== undefined">{{list.owner}} /</span>
+                        <span>{{list.bibListName}}</span>
+                        <span class="pull-right pointer-cursor" ng-click="addToSelected(list)">+</span>
+                    </li>
+                </ul>
+                <button class="btn btn-info" ng-click="togglePage('prev')" ng-disabled="pageInfo.currentPage === 0" ng-if="pageInfo.totalPages > 0">Show prev</button>
+                <button class="btn btn-primary" ng-click="togglePage('next')" ng-disabled="pageInfo.currentPage === pageInfo.totalPages" ng-if="pageInfo.totalPages > 0">Show next</button>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 well biblist-well">
+                <div class="bg-info biblist-well-title"><strong>Selected Lists (max 5 at a time)</strong></div>
+                <div class="space-btw-nav-content" style="text-align:center" ng-if="selectedLists.length === 0">No lists selected</div>
+                <ul class="list-group" ng-if="selectedLists.length > 0">
+                    <li class="list-group-item" ng-repeat="list in selectedLists">
+                        <span ng-if="list.owner !== undefined">{{list.owner}}/</span>
+                        <span>{{list.bibListName}}</span>
+                        <span class="pull-right pointer-cursor" ng-click="removeFromSelected(list.id)">-</span>
+                    </li>
+                </ul>
+            </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label for="biblist-create-name" class="control-label">Create a new list:</label>
+            <input type="text" class="form-control next-to" id="biblist-create-name" placeholder="Enter biblist name" ng-disabled="selectedLists.length > 0" ng-model="newBibListName">
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="addToLists()">Add to list(s)</button>
+</div>

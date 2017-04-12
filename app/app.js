@@ -11,10 +11,11 @@ require('angular-ui-router-uib-modal');
 var states = require('./states');
 require('./home');
 require('./bib-create');
+require('./management');
 require('./user-workspace');
 require('./search');
 require('./directives');
-var app = angular.module('mlrg',['ui.bootstrap','ui.router','mlrg.home','mlrg.bibcreate','mlrg.search','mlrg.directives','oitozero.ngSweetAlert','ngAnimate', 'ui.router.modal', 'ngCookies', 'mlrg.userworkspace']);
+var app = angular.module('mlrg',['ui.bootstrap','ui.router','mlrg.home','mlrg.bibcreate','mlrg.search','mlrg.directives','oitozero.ngSweetAlert','ngAnimate', 'ui.router.modal', 'ngCookies', 'mlrg.userworkspace', 'mlrg.management']);
 
 app.config(states);
 

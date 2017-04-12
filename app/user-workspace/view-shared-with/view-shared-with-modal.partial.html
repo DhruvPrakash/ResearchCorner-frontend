@@ -3,7 +3,10 @@
 </div>
 <div class="modal-body" id="modal-body">
     <ul>
-    	<li ng-repeat="name in usernames">{{name}}</li>
+    	<li ng-repeat="name in usernames">
+    	{{name}}
+    	<button class="btn btn-warning pull-right" type="button" ng-click="ok()">Unshare</button>
+    	</li>
     </ul>
 </div>
 <div class="modal-footer">

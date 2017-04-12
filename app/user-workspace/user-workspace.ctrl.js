@@ -1,13 +1,15 @@
 'use strict';
 
+require('../management/user');
+
 
 angular.module('mlrg.userworkspace')
     .controller('UserWorkspaceController', UserWorkspaceController);
 
-UserWorkspaceController.$inject = ['$scope','MyBibLists', 'BibList','$uibModal'];
+UserWorkspaceController.$inject = ['$scope','MyBibLists', 'BibList','$uibModal', 'User'];
 
 
-function UserWorkspaceController($scope, MyBibLists, BibList, $uibModal) {
+function UserWorkspaceController($scope, MyBibLists, BibList, $uibModal, User) {
 
     $scope.mainTab = {
         selectedTab: 'my-lists',
@@ -26,6 +28,9 @@ function UserWorkspaceController($scope, MyBibLists, BibList, $uibModal) {
     	fetching: false
     };
 
+    User.fetchUsers().then(function(response){
+    	console.log(response);
+    });
 
     $scope.changeMainTab = function(selectedTab) {
         var pageNo = 0;
@@ -80,7 +85,6 @@ function UserWorkspaceController($scope, MyBibLists, BibList, $uibModal) {
     };
 
     $scope.sharedWith = function(list) {
-    	console.log(list);
     	$uibModal.open({
     	    templateUrl: '/app/user-workspace/view-shared-with/view-shared-with-modal.partial.html',
     	    controller: 'ViewSharedWithInstanceController',
@@ -91,6 +95,19 @@ function UserWorkspaceController($scope, MyBibLists, BibList, $uibModal) {
     	        }
     	    }
     	});
+    };
+
+    $scope.shareList = function(list){
+    	$uibModal.open({
+    		templateUrl: '/app/user-workspace/share/share-list-modal.partial.html',
+    		controller: 'ShareListInstanceController',
+    		size: 'md',
+    		resolve: {
+    			sharedList: function(){
+    				return list;
+    			}
+    		}
+    	})
     };
 
     $scope.showBibItems = function(bibListId, bibListName){
