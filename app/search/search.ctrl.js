@@ -227,6 +227,19 @@ function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib,
         
     };
 
+    $scope.viewBibLists = function(bib){
+        $uibModal.open({
+            templateUrl: '/app/search/check-list-present-in/view-present-in-list.partial.html',
+            controller: 'ViewPresentInListInstanceController',
+            size: 'md',
+            resolve: {
+                bibLists: function(){
+                    return BibList.getBibListsByBib(bib.id);
+                }
+            }
+        });
+    };
+
     $scope.editBib = function(bib) {
         Bib.setBibToBeEdited(bib);
         $state.go('editModal');

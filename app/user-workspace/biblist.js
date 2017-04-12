@@ -525,7 +525,7 @@ function BibList($http/*, $q, $timeout*/) {
     };
 
     var shareList = function(bibListId, userIds){
-    	return $http.post('/api/sharebiblist', {
+    	return $http.post('/api/sharebiblist/', {
     		'metadata': {
     			
     		},
@@ -536,6 +536,14 @@ function BibList($http/*, $q, $timeout*/) {
     	});
     }
 
+    var getBibListsByBib = function(bibId){
+    	return $http.get('/api/bibitemtobiblistlookup/?bibId='+bibId).then(function(result){
+    		return result.data.data.map(function(list){
+    			return list.bibListName;
+    		});
+    	});
+    };
+
     var bibListObj = {
         fetchLists: fetchLists,
         createList: createList,
@@ -544,7 +552,8 @@ function BibList($http/*, $q, $timeout*/) {
         getSharedWithMe: getSharedWithMe,
         getBibItemsInList: getBibItemsInList,
         getSharedByMe: getSharedByMe,
-        shareList: shareList
+        shareList: shareList,
+        getBibListsByBib: getBibListsByBib
     };
 
     return bibListObj;

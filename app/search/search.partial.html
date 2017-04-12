@@ -34,7 +34,7 @@
 	        		<span class="btn btn-success" ng-click="viewAbstract(bib)">View Abstract</span>
 				    <span class="btn btn-info" ng-click="viewFullDetails(bib)">View Full Details</span>
 	        		<a class="btn btn-primary" ng-if="bib.doi !== ''" ng-href="http://dx.doi.org/{{bib.doi}}" target="_blank">Open paper</a>
-	        		<span class="btn btn-custom-alt">Biblist(s) this bib is present in</span>
+	        		<span class="btn btn-custom-alt" ng-click="viewBibLists(bib)">Biblist(s) this bib is present in</span>
 	        	</div>
 	        	<div class="col-md-1 edit-icon-for-bib" ng-if="userInfo.group === 'Researcher'">
 	        		<i class="glyphicon glyphicon-edit" ng-click="editBib(bib)"></i>
