@@ -7,6 +7,19 @@ User.$inject = ['$http', '$q', '$timeout'];
 
 function User($http, $q, $timeout) {
 
+	var changePass = function(newPass){
+		return $http.post('/management/changepassword/', {
+			
+			'metadata' : {
+			 
+			 },
+
+			'data' : {
+			    'newPassword': newPass
+			}
+		});
+	};
+
 	var fetchUsers = function(myUsername){
 		// var mock = [
 		// 			{
@@ -91,6 +104,7 @@ function User($http, $q, $timeout) {
 
     var userObj = {
         fetchUsers: fetchUsers,
+        changePass: changePass
     };
 
     return userObj;

@@ -482,6 +482,15 @@
                     return BibList.getMyLists(0);
                 }]
             }
+        })
+        .state('home.accountmanagement', {
+            url: '/accountmanagement',
+            views: {
+                '@home': {
+                    templateUrl: '/app/management/account-management.partial.html',
+                    controller: 'AccountManagementController'
+                }
+            }
         });
 
  }];
