@@ -86,7 +86,7 @@ function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib,
             SearchBib.search($scope.searchParams).then(function(result) {
                 $scope.error.errorPresent = false;
                 $scope.searchedBibs = result.data.payload.map(function(bib){
-                    bib.researchpaperpath = (bib.researchpaperpath !== undefined)? bib.researchpaperpath.slice(4) : undefined;
+                    bib.researchpaperpath = (bib.researchpaperpath !== undefined && bib.researchpaperpath !== null)? bib.researchpaperpath.slice(4) : null;
                     return bib;
                 });
 

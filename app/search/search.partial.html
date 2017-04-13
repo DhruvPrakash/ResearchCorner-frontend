@@ -34,8 +34,8 @@
 	        		<span class="btn btn-success" ng-click="viewAbstract(bib)">View Abstract</span>
 				    <span class="btn btn-info" ng-click="viewFullDetails(bib)">View Full Details</span>
 	        		
-	        		<a class="btn btn-primary" ng-if="bib.researchpaperpath !== undefined"  ng-href="{{bib.researchpaperpath}}" target="_blank">Open paper</a>
-	        		<a class="btn btn-primary" ng-if="bib.doi !== '' && bib.researchpaperpath === undefined" ng-href="http://dx.doi.org/{{bib.doi}}" target="_blank">Open paper</a>
+	        		<a class="btn btn-primary" ng-if="bib.researchpaperpath !== null"  ng-href="{{bib.researchpaperpath}}" target="_blank">Open paper</a>
+	        		<a class="btn btn-primary" ng-if="bib.doi !== '' && bib.researchpaperpath === null" ng-href="http://dx.doi.org/{{bib.doi}}" target="_blank">Open paper</a>
 	        		
 	        		<span class="btn btn-warning" ng-click="associatePDF(bib)">Associate PDF</span>
 

@@ -106,7 +106,8 @@ function Bib($http, FileUpload) {
         $$hashKey: null,
         id: null,
         isSelected: null,
-        type: null
+        type: null,
+        researchpaperpath: null
     };
 
     var getAvailableTypes = function() {
@@ -224,8 +225,9 @@ function Bib($http, FileUpload) {
             setRetainedEditInformation(data);
         }
         //remove research paper path and then send
-        //if(data.)
-
+        
+        //delete dataToBePosted.researchpaperpath;
+        
         var formData = new FormData();
         formData.append('metadata', JSON.stringify(dataToBePosted.metadata));
         formData.append('payload', JSON.stringify(dataToBePosted.payload));
@@ -241,7 +243,7 @@ function Bib($http, FileUpload) {
         editInformationToBePreserved.id = data.payload.id;
         editInformationToBePreserved.isSelected = data.payload.isSelected;
         editInformationToBePreserved.type = data.metadata.type;
-        editInformationToBePreserved = data.payload.researchpaperpath;
+        editInformationToBePreserved.researchpaperpath = data.payload.researchpaperpath;
     };
 
     var setRetainedEditInformation = function(data) {
