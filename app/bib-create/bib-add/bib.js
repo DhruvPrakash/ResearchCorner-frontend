@@ -224,8 +224,10 @@ function Bib($http, FileUpload) {
         if (mode === 'edit') {
             setRetainedEditInformation(data);
             delete dataToBePosted.researchpaperpath;
+            delete dataToBePosted.isSelected;
         }
         //remove research paper path and then send
+        console.log(dataToBePosted);
         
         var formData = new FormData();
         formData.append('metadata', JSON.stringify(dataToBePosted.metadata));
