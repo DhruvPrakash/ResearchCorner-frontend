@@ -223,11 +223,10 @@ function Bib($http, FileUpload) {
         var dataToBePosted = angular.copy(data);
         if (mode === 'edit') {
             setRetainedEditInformation(data);
+            delete dataToBePosted.researchpaperpath;
         }
         //remove research paper path and then send
         
-        //delete dataToBePosted.researchpaperpath;
-        console.log(dataToBePosted);
         var formData = new FormData();
         formData.append('metadata', JSON.stringify(dataToBePosted.metadata));
         formData.append('payload', JSON.stringify(dataToBePosted.payload));
