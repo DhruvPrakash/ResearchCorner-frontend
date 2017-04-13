@@ -36,9 +36,9 @@
 	        		
 	        		<a class="btn btn-primary" ng-if="bib.researchpaperpath !== null"  ng-href="{{bib.researchpaperpath}}" target="_blank">Open paper</a>
 	        		<a class="btn btn-primary" ng-if="bib.doi !== '' && bib.researchpaperpath === null" ng-href="http://dx.doi.org/{{bib.doi}}" target="_blank">Open paper</a>
-	        		
-	        		<span class="btn btn-warning" ng-click="associatePDF(bib)">Associate PDF</span>
-
+	        		<!-- This can be uncommented when associate pdf from search screen is done in backend -->
+	        		<!--<span class="btn btn-warning" ng-click="associatePDF(bib)">Associate PDF</span>-->
+					
 	        		<span class="btn btn-custom-alt" ng-click="viewBibLists(bib)">Biblist(s) this bib is present in</span>
 	        	</div>
 	        	<div class="col-md-1 edit-icon-for-bib" ng-if="userInfo.group === 'Researcher'">
