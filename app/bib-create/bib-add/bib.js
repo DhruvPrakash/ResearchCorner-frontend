@@ -227,7 +227,7 @@ function Bib($http, FileUpload) {
         //remove research paper path and then send
         
         //delete dataToBePosted.researchpaperpath;
-        
+        console.log(dataToBePosted);
         var formData = new FormData();
         formData.append('metadata', JSON.stringify(dataToBePosted.metadata));
         formData.append('payload', JSON.stringify(dataToBePosted.payload));

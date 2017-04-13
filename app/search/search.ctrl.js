@@ -257,6 +257,8 @@ function SearchController($scope, SearchBib, $uibModal, SweetAlert, $state, Bib,
     };
 
     $scope.editBib = function(bib) {
+        console.log('edit bib modal');
+        console.log(bib);
         Bib.setBibToBeEdited(bib);
         $state.go('editModal');
     };
