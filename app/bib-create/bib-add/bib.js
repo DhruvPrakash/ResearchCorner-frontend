@@ -223,8 +223,16 @@ function Bib($http, FileUpload) {
         if (mode === 'edit') {
             setRetainedEditInformation(data);
         }
+        //remove research paper path and then send
+        //if(data.)
 
-        return $http.post('/api/addbib/', dataToBePosted);
+        var formData = new FormData();
+        formData.append('metadata', JSON.stringify(dataToBePosted.metadata));
+        formData.append('payload', JSON.stringify(dataToBePosted.payload));
+        return $http.post('/api/addbib/', formData, {
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        });
     };
 
 
@@ -233,6 +241,7 @@ function Bib($http, FileUpload) {
         editInformationToBePreserved.id = data.payload.id;
         editInformationToBePreserved.isSelected = data.payload.isSelected;
         editInformationToBePreserved.type = data.metadata.type;
+        editInformationToBePreserved = data.payload.researchpaperpath;
     };
 
     var setRetainedEditInformation = function(data) {
@@ -240,6 +249,7 @@ function Bib($http, FileUpload) {
         data.payload.id = editInformationToBePreserved.id;
         data.payload.isSelected = editInformationToBePreserved.isSelected;
         data.payload.type = editInformationToBePreserved.type;
+        data.payload.researchpaperpath = editInformationToBePreserved.researchpaperpath;
     };
 
 
